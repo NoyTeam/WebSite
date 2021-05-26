@@ -3,7 +3,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <meta name="author" content="NoyACG,NoyTeam,同人本,R18漫画">
+    <meta name="author" content="NoyAcg,NoyTeam,同人本,本子,R18漫畫">
     <meta name="description" content="NoyAcg是一個公益免費的本子平台，現已開放測試!(僅支持Andorid客戶端)">
     <link rel="preconnect" href="//fonts.gstatic.com">
     <link rel="preconnect" href="//cdn.jsdelivr.net">
@@ -174,7 +174,7 @@
             <div class="heading-wrapper">
                 <h3>下載測試版APP</h3>
 				<p>歡迎反饋！</p>
-                <a href="#" class="primary-btn">Android</a>
+                <a id="AndroidDownload" href="#" class="primary-btn">Android</a>
                 <a href="#" class="primary-btn">WebSite (未開放)</a>
             </div>
             <div class="row topmargin-lg">
@@ -194,11 +194,27 @@
         </div>
     </section>
 
-    
-
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/jquery-3.3.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/bootstrap.min.js"></script>
+    <script>
+        document.getElementById("AndroidDownload").href = JSON.parse(get("https://api.noy.asia/update"))['url'];
+        
+        function get(url){
+            var jsonInfo
+            var xhr=new XMLHttpRequest();
+            xhr.open('GET',url,false);
+            xhr.onreadystatechange=function(){
+                if(xhr.readyState==4){
+                    if(xhr.status==200 || xhr.status==304){
+                        jsonInfo = xhr.responseText;
+                    }
+                }
+            }
+            xhr.send();
+            return jsonInfo;
+        }
+    </script>
 	<script>
 		document.getElementById("timeinfo").innerHTML="© NoyTeam 2019-"+new Date().getFullYear()
 	</script>
