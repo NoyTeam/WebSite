@@ -140,37 +140,9 @@
                 <h2>公告板</h2>
                 <p>About NoyAcg</p>
             </div>
-            <div class="row topmargin-lg">
-                <?php
-                    $config = fread(fopen("config.json","r"),filesize("config.json"));
-    
-                    $provinces = json_decode($config, true);
-                    foreach($provinces as $province){
-                        $image = $province['image'];
-                        $title = $province['title'];
-                        $info = $province['info'];
-                        $page = $province['page'];
-
-                        echo <<<EOT
-                        <div class="col-md-4">
-                            <div class="blog-post">
-                                <a href="#" data-toggle="modal" data-target="#faq$page" data-target=".bs-example-modal-sm">
-                                    <img src="$image" class="img-fluid">
-                                </a>
-                                <div class="blog-post-info">
-                                    <h5>$title</h5>
-                                    <p>$info</p>
-                                    <a href="#" data-toggle="modal" data-target="#faq$page" data-target=".bs-example-modal-sm">OPEN</a>
-                                </div>
-                            </div>
-                        </div>
-EOT;
-                    }
-                ?>
-            </div>
+            <div class="row topmargin-lg" id="about-html"></div>
         </div>
     </section>
-
 
     <?php
         $config = fread(fopen("config.json","r"),filesize("config.json"));
@@ -247,6 +219,21 @@ EOT;
     <script>
         var android_url
         window.onload = function(){
+            var config = JSON.parse(get("/config.json"));
+            for (i=0;i<config.length;i++){
+                document.getElementById("about-html").innerHTML = document.getElementById("about-html").innerHTML + `<div class="col-md-4">
+                            <div class="blog-post">
+                                <a href="#" data-toggle="modal" data-target="#faq`+config[i]['page']+`" data-target=".bs-example-modal-sm">
+                                    <img src="`+config[i]['image']+`" class="img-fluid">
+                                </a>
+                                <div class="blog-post-info">
+                                    <h5>`+config[i]['title']+`</h5>
+                                    <p>`+config[i]['info']+`</p>
+                                    <a href="#" data-toggle="modal" data-target="#faq`+config[i]['page']+`" data-target=".bs-example-modal-sm">OPEN</a>
+                                </div>
+                            </div>
+                        </div>`;
+            }
             android_url = JSON.parse(get("https://api.noy.asia/update"))['url'];
         }
         function get(url){
