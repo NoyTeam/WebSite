@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="author" content="NoyAcg,NoyTeam,同人本,本子,R18漫畫">
-    <meta name="description" content="NoyAcg是一個公益免費的本子平台，現已開放測試!(僅支持Andorid客戶端)">
+    <meta name="description" content="NoyAcg是一個公益免費的本子平台，現已開放測試!">
     <link rel="preconnect" href="//fonts.gstatic.com">
     <link rel="preconnect" href="//cdn.jsdelivr.net">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noyteam/css/bootstrap.min.css">
@@ -16,8 +16,11 @@
         .line_m{text-decoration:line-through}
         img{max-width:100%;}
         @media screen and (min-width: 575px) {
-            .modal-dialog{
+            .modal-dialog-faq{
                 max-width: 80%;
+            }
+            .modal-dialog-download{
+                max-width: 60%;
             }
         }
     </style>
@@ -161,7 +164,7 @@
                                 </div>
                             </div>
                         </div>
-                        EOT;
+EOT;
                     }
                 ?>
             </div>
@@ -178,7 +181,7 @@
             $pageinfo = fread(fopen("page/".$page.".html","r"),filesize("page/".$page.".html"));
             echo <<<EOT
             <div class="modal fade show" id="faq$page" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                <div class="modal-dialog">
+                <div class="modal-dialog modal-dialog-faq">
                     <div class="modal-content">
                         <div class="modal-header">
                             <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
@@ -187,22 +190,40 @@
                             $pageinfo
                         </div>
                         <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                            <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
                         </div>
                     </div>
                 </div>
             </div>
-            EOT;
+EOT;
         }
     ?>
+
+    <div class="modal fade show" id="download" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-download">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body" id="download-info">
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                    <a id="download-url" href="" target="_blank"><button id="download-button" type="button" class="btn btn-default" data-dismiss="modal"></button></a>
+                </div>
+            </div>
+        </div>
+    </div>
 
     <section id="footer">
         <div class="container">
             <div class="heading-wrapper">
                 <h3>下載測試版APP</h3>
 				<p>歡迎反饋！</p>
-                <a id="AndroidDownload" href="#" target="_blank" class="primary-btn">Android</a>
-                <a href="#" class="primary-btn">WebSite (未開放)</a>
+                <a href="#" data-toggle="modal" data-target="#download" onclick="dl('Android')" data-target=".bs-example-modal-sm" class="primary-btn">Android</a>
+                <a href="#" data-toggle="modal" data-target="#download" onclick="dl('iOS')" data-target=".bs-example-modal-sm" class="primary-btn">iOS (内部測試中)</a>
+                <a href="#" data-toggle="modal" data-target="#download" onclick="dl('WebSite')" data-target=".bs-example-modal-sm" class="primary-btn">WebSite (開發中)</a>
             </div>
             <div class="row topmargin-lg">
                 <div class="col-md-4">
@@ -224,10 +245,10 @@
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/bootstrap.min.js"></script>
     <script>
+        var android_url
         window.onload = function(){
-            document.getElementById("AndroidDownload").href = JSON.parse(get("https://api.noy.asia/update"))['url'];
+            android_url = JSON.parse(get("https://api.noy.asia/update"))['url'];
         }
-        
         function get(url){
             var jsonInfo
             var xhr=new XMLHttpRequest();
@@ -241,6 +262,32 @@
             }
             xhr.send();
             return jsonInfo;
+        }
+        function dl(system){
+            if (system == "Android"){
+                document.getElementById("download-url").href = android_url;
+                document.getElementById('download-button').innerHTML = "前往下載";
+                document.getElementById("download-info").innerHTML = `<h5>下載前須知</h5>
+                <ul>
+                    <li>我們使用邀請制，請找到你身邊使用NoyAcg的朋友索要邀請碼</li>
+                    <li>當然也可以加群索要公用邀請碼/群友的邀請碼</li>
+                    <li>NoyAcg 仍在測試，現階段可能存在很多BUG和沒有實現的功能</li>
+                </ul>`;
+            }else if (system == "iOS"){
+                document.getElementById("download-url").href = "#";
+                document.getElementById('download-button').innerHTML = "完成";
+                document.getElementById("download-info").innerHTML = `<h5>内部測試中</h5>
+                <ul>
+                    <li>因爲部分BUG，以及證書和分發問題，暫未開放</li>
+                </ul>`;
+            }else if (system == "WebSite"){
+                document.getElementById("download-url").href = "http://noy-webapp.vercel.app/";
+                document.getElementById('download-button').innerHTML = "搶先測試";
+                document.getElementById("download-info").innerHTML = `<h5>開發中</h5>
+                <ul>
+                    <li>目前僅有半成品，僅供測試</li>
+                </ul>`;
+            }
         }
     </script>
 	<script>
