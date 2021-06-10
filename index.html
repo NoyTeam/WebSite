@@ -144,32 +144,7 @@
         </div>
     </section>
 
-    <?php
-        $config = fread(fopen("config.json","r"),filesize("config.json"));
-
-        $provinces = json_decode($config, true);
-        foreach($provinces as $province){
-            $page = $province['page'];
-            $pageinfo = fread(fopen("page/".$page.".html","r"),filesize("page/".$page.".html"));
-            echo <<<EOT
-            <div class="modal fade show" id="faq$page" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-dialog-faq">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                        </div>
-                        <div class="modal-body">
-                            $pageinfo
-                        </div>
-                        <div class="modal-footer">
-                            <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-EOT;
-        }
-    ?>
+    <span id="faqpagelist"></span>
 
     <div class="modal fade show" id="download" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog modal-dialog-download">
@@ -219,7 +194,7 @@ EOT;
     <script>
         var android_url
         window.onload = function(){
-            var config = JSON.parse(get("/config.json"));
+            var config = JSON.parse(get("config.json"));
             for (i=0;i<config.length;i++){
                 document.getElementById("about-html").innerHTML = document.getElementById("about-html").innerHTML + `<div class="col-md-4">
                             <div class="blog-post">
@@ -233,6 +208,26 @@ EOT;
                                 </div>
                             </div>
                         </div>`;
+            }
+            var config = JSON.parse(get("config.json"));
+            for(i=0;i<config.length;i++){
+                var page = config[i]['page'];
+                var pageinfo = get("page/"+page+".html")
+                document.getElementById('faqpagelist').innerHTML = document.getElementById('faqpagelist').innerHTML + `<div class="modal fade show" id="faq`+page+`" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-faq">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                            </div>
+                            <div class="modal-body">
+                                `+pageinfo+`
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>`
             }
             android_url = JSON.parse(get("https://api.noy.asia/update"))['url'];
         }
