@@ -160,7 +160,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
-                    <a id="download-url" href="" target="_blank"><button id="download-button" type="button" class="btn btn-default" data-dismiss="modal"></button></a>
+                    <a href="" target="_blank" id="download-button" type="button" class="btn btn-default" data-dismiss="modal"></button></a>
                 </div>
             </div>
         </div>
@@ -250,7 +250,7 @@
         }
         function dl(system){
             if (system == "Android"){
-                document.getElementById("download-url").href = android_url;
+                document.getElementById("download-button").href = android_url;
                 document.getElementById('download-button').innerHTML = "前往下載";
                 document.getElementById("download-info").innerHTML = `<h5>下載前須知</h5>
                 <ul>
@@ -259,14 +259,14 @@
                     <li>NoyAcg 仍在測試，現階段可能存在很多BUG和沒有實現的功能</li>
                 </ul>`;
             }else if (system == "iOS"){
-                document.getElementById("download-url").href = "#";
+                document.getElementById("download-button").href = "#";
                 document.getElementById('download-button').innerHTML = "完成";
                 document.getElementById("download-info").innerHTML = `<h5>内部測試中</h5>
                 <ul>
                     <li>因爲部分BUG，以及證書和分發問題，暫未開放</li>
                 </ul>`;
             }else if (system == "WebSite"){
-                document.getElementById("download-url").href = "http://noy-webapp.vercel.app/";
+                document.getElementById("download-button").href = "http://noy-webapp.vercel.app/";
                 document.getElementById('download-button').innerHTML = "搶先測試";
                 document.getElementById("download-info").innerHTML = `<h5>開發中</h5>
                 <ul>
