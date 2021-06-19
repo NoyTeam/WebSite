@@ -24,8 +24,81 @@
             }
         }
     </style>
+    <style>
+        .loading-box {
+            position: fixed;
+            left: 0;
+            right: 0;
+            margin: auto;
+            z-index: 99999;
+        }
+        .loading-bg{
+            background-color: #f1f1f1;
+            position: fixed;
+            z-index: 99998;
+            width: 100%;
+            height: 100%;
+            opacity: 0.9;
+        }
+        .loading-an {
+            margin: 100px auto;
+            width: 50px;
+            height: 60px;
+            text-align: center;
+            font-size: 10px;
+        }
+        .loading-an > div {
+            background-color: #3988ff;
+            height: 100%;
+            width: 6px;
+            display: inline-block;
+            
+            -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
+            animation: stretchdelay 1.2s infinite ease-in-out;
+        }
+        .loading-an .rect2 {
+            -webkit-animation-delay: -1.1s;
+            animation-delay: -1.1s;
+        }
+        .loading-an .rect3 {
+            -webkit-animation-delay: -1.0s;
+            animation-delay: -1.0s;
+        }
+        .loading-an .rect4 {
+            -webkit-animation-delay: -0.9s;
+            animation-delay: -0.9s;
+        }
+        .loading-an .rect5 {
+            -webkit-animation-delay: -0.8s;
+            animation-delay: -0.8s;
+        }
+        @-webkit-keyframes stretchdelay {
+            0%, 40%, 100% { -webkit-transform: scaleY(0.4) } 
+            20% { -webkit-transform: scaleY(1.0) }
+        }
+        @keyframes stretchdelay {
+            0%, 40%, 100% {
+                transform: scaleY(0.4);
+                -webkit-transform: scaleY(0.4);
+            }  20% {
+                transform: scaleY(1.0);
+                -webkit-transform: scaleY(1.0);
+            }
+        }
+    </style>
     <title>NoyAcg</title>
 </head>
+
+<div class="loading-box" id="loading-box">
+    <div class="loading-an">
+        <div class="rect1"></div>
+        <div class="rect2"></div>
+        <div class="rect3"></div>
+        <div class="rect4"></div>
+        <div class="rect5"></div>
+    </div>
+</div>
+<div class="loading-bg" id="loading-bg"></div>
 
 <body style="font-family: 'Noto Sans TC', sans-serif;">
     <nav class="navbar navbar-expand-lg fixed-top">
@@ -233,6 +306,19 @@
                 </div>`
             }
             android_url = JSON.parse(get("https://api.noyteam.online/update"))['url'];
+            ldown("loading-box")
+            ldown("loading-bg")
+        }
+        function ldown(id){
+            var i = 1;
+            var in1 = setInterval(function(){
+                i = i-0.02;
+                document.getElementById(id).style.opacity = i;
+                if (i <= 0){clearInterval(in1);};
+            }, 10)
+            setTimeout(function(){
+                document.getElementById(id).style.display = "none";
+            }, 500)
         }
         function get(url){
             var jsonInfo
