@@ -23,19 +23,17 @@
                 max-width: 60%;
             }
         }
-    </style>
-    <style>
         .loading-box {
             position: fixed;
             left: 0;
             right: 0;
             margin: auto;
-            z-index: 99999;
+            z-index: 1029;
         }
         .loading-bg{
             background-color: #f1f1f1;
             position: fixed;
-            z-index: 99998;
+            z-index: 1028;
             width: 100%;
             height: 100%;
             opacity: 0.9;
@@ -118,7 +116,7 @@
                         <a class="nav-link" href="//noyteam.online">社區</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="//t.me/NoyAcg">TG群組</a>
+                        <a class="nav-link" href="#" data-toggle="modal" data-target="#grouplist">群組</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#roger">了解一下？</a>
@@ -184,7 +182,7 @@
                         <div class="card-body">
                             可以透過多種方式聯繫我們反饋問題:
                             <ul>
-                                <li>Email: <a href="mailto:woodpackeraisser@protonmail.com">woodpackeraisser@protonmail.com</a></li>
+                                <li>右下角的在線支援</li>
                                 <li>Telegram: <a href="https://t.me/noyacg" target="_blank">@noyacg</a></li>
                             </ul>
                         </div>
@@ -201,7 +199,7 @@
                     </div>
                     <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
                         <div class="card-body">
-                            面向用戶的上載交互頁面仍在開發中，請耐心等待！
+                            管理面板目前已開發完成，歡迎申請！
                         </div>
                     </div>
                 </div>
@@ -239,6 +237,24 @@
         </div>
     </div>
 
+    <div class="modal fade show" id="grouplist" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body" style="text-align: center;width: 100%;">
+                    <a href="https://t.me/noyacg" class="secondary-btn" style="width: 40%;"><svg style="width: 100%;" t="1624354830987" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="2281" data-spm-anchor-id="a313x.7781069.0.i0" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css"></style></defs><path d="M512 16C238 16 16 238 16 512s222 496 496 496 496-222 496-496S786 16 512 16z m243.6 339.8l-81.4 383.6c-6 27.2-22.2 33.8-44.8 21l-124-91.4-59.8 57.6c-6.6 6.6-12.2 12.2-25 12.2l8.8-126.2 229.8-207.6c10-8.8-2.2-13.8-15.4-5l-284 178.8-122.4-38.2c-26.6-8.4-27.2-26.6 5.6-39.4l478.2-184.4c22.2-8 41.6 5.4 34.4 39z" fill="#2d8eff" p-id="2282"></path></svg></a>
+                    <a href="https://jq.qq.com/?_wv=1027&k=hnu8l1eT" class="secondary-btn" style="width: 40%;"><svg style="width: 100%;" t="1624354843967" class="icon" viewBox="0 0 1024 1024" version="1.1" xmlns="http://www.w3.org/2000/svg" p-id="3104" xmlns:xlink="http://www.w3.org/1999/xlink"><defs><style type="text/css"></style></defs><path d="M255.329734 650.325415c-21.48636-15.890922-19.573801-56.298214-5.658883-94.998631 14.027481-38.987966 49.364291-76.556607 49.762357-84.845387 1.402953-30.827099-3.044336-35.960003 0-44.056402 6.79066-18.155499 15.046694-11.189853 15.046694-20.594037 0-118.637004 88.145549-214.799134 196.883089-214.799134s196.915835 96.16213 196.915835 214.799134c0 4.542456 11.794627 0 17.46886 20.594037 1.14815 4.25593 1.944282 20.673855 0.575098 44.056402-0.669242 11.236925 29.965475 24.913413 45.777603 84.845387 15.827477 59.948347 0 88.207971-7.922437 94.998631-9.80225 8.400321-21.135366-6.16849-30.300097-20.769023-8.527211-13.643742-15.190981-27.288506-16.895809-22.092158-8.638751 26.140357-12.687974 43.626613-38.159088 72.110341-1.339508 1.51347 29.455869 12.655228 38.159088 36.373419 8.352225 22.7614 24.594141 58.823734-81.705883 70.1415-33.472346 3.538593-61.909002-6.28003-81.8164-16.066931-17.231453-8.487302-28.053939-16.983813-30.125111-16.807804-8.335852 0.732687-4.638647 0-13.580297 0-7.315616 0-7.794523 0.541329-14.6957 0-1.89721-0.127913-22.633486 32.874735-115.353215 32.874735-71.839165 0-90.472548-45.24446-75.998905-70.1415 14.440897-24.865317 38.573527-32.118512 35.161824-36.054147-16.736173-19.398816-28.275997-40.10337-35.161824-58.863642-1.722224-4.670369-3.155876-9.213849-4.272303-13.564947-1.258667-4.830005-6.551206 8.671497-14.121626 22.12388-6.471388 11.57257-14.632255 23.144116-23.335475 23.144116C259.808746 652.732232 257.560542 651.999544 255.329734 650.325415M63.865051 513.214664c0 247.156076 200.358237 447.506127 447.498964 447.506127 247.156076 0 447.498964-200.350051 447.498964-447.506127 0-247.140727-200.341864-447.498964-447.498964-447.498964C264.223289 65.715701 63.865051 266.073938 63.865051 513.214664" p-id="3105" fill="#2d8eff"></path></svg></a>
+                    
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section id="footer">
         <div class="container">
             <div class="heading-wrapper">
@@ -270,7 +286,8 @@
     <script>
         var android_url
         window.onload = function(){
-            var config = JSON.parse(get("config.json"));
+            var configfile = JSON.parse(get("config.json"))
+            var config = configfile;
             for (i=0;i<config.length;i++){
                 document.getElementById("about-html").innerHTML = document.getElementById("about-html").innerHTML + `<div class="col-md-4">
                             <div class="blog-post">
@@ -285,7 +302,6 @@
                             </div>
                         </div>`;
             }
-            var config = JSON.parse(get("config.json"));
             for(i=0;i<config.length;i++){
                 var page = config[i]['page'];
                 var pageinfo = get("page/"+page+".html")
@@ -357,7 +373,7 @@
                 document.getElementById('download-button').innerHTML = "搶先測試";
                 document.getElementById("download-info").innerHTML = `<h5>開發中</h5>
                 <ul>
-                    <li>目前僅有半成品，僅供測試</li>
+                    <li>缺少APP的新版功能，開發進度較慢</li>
                 </ul>`;
             }
         }
