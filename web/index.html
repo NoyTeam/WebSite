@@ -115,7 +115,7 @@ var p = new Ping({ favicon: "/ping", timeout: 1500, logError: false});
 p.ping("https://noy-webapp.vercel.app", function(err, data) {
   if (err) {
     console.log("no response")
-    document.getElementById("verping").innerHTML = "连接失败";
+    document.getElementById("verping").innerHTML = "連接失敗";
   }
   console.log("200 ok")
   document.getElementById("verping").innerHTML = data;
@@ -132,7 +132,7 @@ p.ping("https://gallant-davinci-cc86c9.netlify.app", function(err, data) {
 $(document).ready(function() {
     $.getJSON("https://api.ip.sb/geoip?callback=?",
         function(json) {
-            document.getElementById("user-coutry").innerHTML = "您正在"+json.country+"地区浏览NoyACG,";
+            document.getElementById("user-coutry").innerHTML = "您正在"+json.country+"地區使用NoyACG,";
         }
     );
 });
