@@ -113,7 +113,7 @@
                         <a class="nav-link" href="#hero">首頁</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="//noyteam.online">社區</a>
+                        <a class="nav-link" href="//www.noyteam.online">社區</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#grouplist">群組</a>
@@ -214,7 +214,22 @@
                 <h2>公告板</h2>
                 <p>About NoyAcg</p>
             </div>
-            <div class="row topmargin-lg" id="about-html"></div>
+            <div class="row topmargin-lg" id="about-html">
+
+                <div class="col-md-4">
+                    <div class="blog-post">
+                        <a href="https://www.noyteam.online/d/18" target="_blank">
+                            <img src="assets/images/post-01.jpg" class="img-fluid">
+                        </a>
+                        <div class="blog-post-info">
+                            <h5>如何設定頭像</h5>
+                            <p>使用教程</p>
+                            <a href="https://www.noyteam.online/d/18" target="_blank">OPEN</a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
         </div>
     </section>
 
@@ -255,6 +270,20 @@
         </div>
     </div>
 
+    <section id="signature">
+        <div class="container">
+            <div class="heading-wrapper">
+                <h2>簽章</h2>
+                <p>signature</p>
+            </div>
+        </div>
+    </section>
+
+    <center style="margin-bottom: 10%;">
+        <div style="display:inline;margin-right: 5px;" title="TrustAsia 安全簽章" id="myssl_seal" onclick="window.open('https://seal.trustasia.com/seal/detail?domain=noy.asia','TrustAsia 安全簽章','height=800,width=470,top=0,right=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')" style="text-align: center"><img src="https://sealres.trustasia.com/seal/img/1x/seal.svg?domain=noy.asia" alt="TrustAsia 安全簽章" style="width: 130px;height: auto; cursor: pointer"></div>
+        <a style="display:inline;margin-left: 5px;" href="https://status.noyteam.online" target="_blank"><img src="https://statuspage.freshping.io/badge/6b0f8156-3e52-4b9b-bb8c-7a4ccccc151d?0.5517256557041295"/> </a>
+    </center>
+
     <section id="footer">
         <div class="container">
             <div class="heading-wrapper">
@@ -286,41 +315,6 @@
     <script>
         var android_url
         window.onload = function(){
-            var configfile = JSON.parse(get("config.json"))
-            var config = configfile;
-            for (i=0;i<config.length;i++){
-                document.getElementById("about-html").innerHTML = document.getElementById("about-html").innerHTML + `<div class="col-md-4">
-                            <div class="blog-post">
-                                <a href="#" data-toggle="modal" data-target="#faq`+config[i]['page']+`" data-target=".bs-example-modal-sm">
-                                    <img src="`+config[i]['image']+`" class="img-fluid">
-                                </a>
-                                <div class="blog-post-info">
-                                    <h5>`+config[i]['title']+`</h5>
-                                    <p>`+config[i]['info']+`</p>
-                                    <a href="#" data-toggle="modal" data-target="#faq`+config[i]['page']+`" data-target=".bs-example-modal-sm">OPEN</a>
-                                </div>
-                            </div>
-                        </div>`;
-            }
-            for(i=0;i<config.length;i++){
-                var page = config[i]['page'];
-                var pageinfo = get("page/"+page+".html")
-                document.getElementById('faqpagelist').innerHTML = document.getElementById('faqpagelist').innerHTML + `<div class="modal fade show" id="faq`+page+`" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-faq">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                            </div>
-                            <div class="modal-body">
-                                `+pageinfo+`
-                            </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>`
-            }
             android_url = JSON.parse(get("https://api.noyteam.online/update"))['url'];
             ldown("loading-box")
             ldown("loading-bg")
@@ -384,7 +378,7 @@
 	<script>
 		document.getElementById("timeinfo").innerHTML="© NoyTeam 2019-"+new Date().getFullYear()
 	</script>
-	<script src="//code.tidio.co/blqxsl4e4ghrhhomct8z4jhc68dunmmc.js" async></script>
+	<!-- <script src="//code.tidio.co/blqxsl4e4ghrhhomct8z4jhc68dunmmc.js" async></script> -->
 	<!-- Global site tag (gtag.js) - Google Analytics -->
 	<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCTFV4H8M4"></script>
 	<script>
