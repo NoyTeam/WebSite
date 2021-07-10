@@ -1,0 +1,140 @@
+
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+	<title>跳转提示</title>
+
+	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.0/dist/jquery.min.js"></script>
+
+	<style>
+		.card,
+		.notice {
+			margin: 0 auto;
+			max-width: 35em;
+			opacity: 0.87;
+			box-shadow: 0 2px 2px 0 rgba(0, 0, 0, .14), 0 3px 1px -2px rgba(0, 0, 0, .2), 0 1px 5px 0 rgba(0, 0, 0, .12);
+			border-radius: 2px;
+		}
+        .tips{
+            font-size: 1.28rem;
+        }
+		.notice {
+			padding: 16px 24px;
+			max-width: calc(35em + 16px);
+			background: #f8332c;
+			color: white;
+			margin-bottom: 16px;
+		}
+
+		.card {
+			padding: 24px 32px;
+			background: white;
+			position: relative;
+		}
+
+		.button {
+			color: #fff;
+			border: 0;
+			background-color: #1d74f5;
+			position: relative;
+			display: flex;
+			height: 40px;
+			min-height: 40px;
+			padding: 0 1.5rem;
+			cursor: pointer;
+			transition: opacity .3s, background-color .3s, color .3s;
+			text-align: center;
+			font-size: .875rem;
+			font-weight: 600;
+			-webkit-box-align: center;
+			align-items: center;
+			-webkit-box-pack: center;
+			justify-content: center;
+			border-radius: 2px;
+		}
+
+		.button:hover {
+			opacity: .6;
+		}
+
+		.button:active {
+			transform: translateY(2px);
+			opacity: .9;
+		}
+
+		.button:disabled {
+			cursor: not-allowed;
+			background: gray !important;
+			pointer-events: none;
+		}
+
+		input:focus {
+			outline: none;
+		}
+	</style>
+	<script>
+
+		$(function() {
+			$('#main').click(function() {
+				location.href = 'https://noy-webapp.vercel.app';
+			});
+			$('#backup').click(function() {
+			    location.href = 'https://gallant-davinci-cc86c9.netlify.app/';
+			});
+	  if (screen.width < 625){
+              alert("您的设备分辨率过低,使用体验可能下降");
+          }
+
+		});
+	</script>
+</head>
+
+<body style="font-family: 'Microsoft YaHei';background: rgb(241, 241, 241);padding: 48px 16px 0 16px">
+
+	<div class="card">
+		<h3 style="margin: 0;margin-bottom: 16px" id="status">NoyACG Web 分流页面</h3>
+        <p class="notice">Tips: 所有线路采用同一个用户系统,请放心选择</p>
+        <p> </p>
+        <p class="tips"><b id="user-coutry">无法获取您所在的国家或地区,但还是</b> 请遵守当地法律法规😀</p>
+		<div style="display: flex;justify-content: space-between">
+			<button id="main" class="button" style="text-decoration: none;width: 58%">
+				vercel线路 (<span id="verping"></span> ms)
+			</button>
+			<button id="backup" class="button" style="text-decoration: none;width: 38%;background: purple">
+				备用线路 (<span id="nfping"></span> ms)
+			</button>
+		</div>
+	</div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/ping.js@0.2.2/dist/ping.min.js"></script>
+<script>
+var p = new Ping({ favicon: "/ping", timeout: 1500, logError: false});
+p.ping("https://noy-webapp.vercel.app", function(err, data) {
+  if (err) {
+    console.log("no response")
+    document.getElementById("verping").innerHTML = "连接失败";
+  }
+  console.log("200 ok")
+  document.getElementById("verping").innerHTML = data;
+});
+p.ping("https://gallant-davinci-cc86c9.netlify.app", function(err, data) {
+  if (err) {
+    console.log("no response")
+    document.getElementById("nfping").innerHTML = "error";
+  }
+  console.log("200 ok")
+  document.getElementById("nfping").innerHTML = data;
+});
+
+$(document).ready(function() {
+    $.getJSON("https://api.ip.sb/geoip?callback=?",
+        function(json) {
+            document.getElementById("user-coutry").innerHTML = "您正在"+json.country+"地区浏览NoyACG,";
+        }
+    );
+});
+</script>
+</html>
