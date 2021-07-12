@@ -135,7 +135,9 @@
         </div>
     </nav>
 
-    
+    <div style="padding-top: 63px;">
+        <div id="top-t" style="height: 50px;line-height: 50px;background-color: #e9f3ff;text-align: center;display: none;"></div>
+    </div>
 
     <section id="hero">
         <div class="container">
@@ -321,6 +323,12 @@
             android_url = JSON.parse(get("https://api.noyteam.online/update"))['url'];
             ldown("loading-box")
             ldown("loading-bg")
+
+            if(!!window.ActiveXObject || "ActiveXObject" in window){
+                let topt =  document.getElementById('top-t');
+                topt.innerHTML = '請不要使用 Internet Explorer 瀏覽器，點擊這裡下載新版本 <a href="https://www.microsoft.com/zh-tw/edge">Edge</a>'
+                topt.style.display = "";
+            }
         }
         function ldown(id){
             var i = 1;
@@ -352,26 +360,26 @@
             if (system == "Android"){
                 download_url = android_url;
                 document.getElementById('download-button').innerHTML = "前往下載";
-                document.getElementById("download-info").innerHTML = `<h5>下載前須知</h5>
-                <ul>
-                    <li>我們使用邀請制，請找到你身邊使用NoyAcg的朋友索要邀請碼</li>
-                    <li>當然也可以加群索要公用邀請碼/群友的邀請碼</li>
-                    <li>NoyAcg 仍在測試，現階段可能存在很多BUG和沒有實現的功能</li>
-                </ul>`;
+                document.getElementById("download-info").innerHTML = '<h5>下載前須知</h5>\
+                <ul>\
+                    <li>我們使用邀請制，請找到你身邊使用NoyAcg的朋友索要邀請碼</li>\
+                    <li>當然也可以加群索要公用邀請碼/群友的邀請碼</li>\
+                    <li>NoyAcg 仍在測試，現階段可能存在很多BUG和沒有實現的功能</li>\
+                </ul>';
             }else if (system == "iOS"){
                 download_url = "#";
                 document.getElementById('download-button').innerHTML = "完成";
-                document.getElementById("download-info").innerHTML = `<h5>内部測試中</h5>
-                <ul>
-                    <li>因爲部分BUG，以及證書和分發問題，暫未開放</li>
-                </ul>`;
+                document.getElementById("download-info").innerHTML = '<h5>内部測試中</h5>\
+                <ul>\
+                    <li>因爲部分BUG，以及證書和分發問題，暫未開放</li>\
+                </ul>';
             }else if (system == "WebSite"){
                 download_url = "/web/";
                 document.getElementById('download-button').innerHTML = "搶先測試";
-                document.getElementById("download-info").innerHTML = `<h5>開發中</h5>
-                <ul>
-                    <li>缺少APP的新版功能，開發進度較慢</li>
-                </ul>`;
+                document.getElementById("download-info").innerHTML = '<h5>開發中</h5>\
+                <ul>\
+                    <li>缺少APP的新版功能，開發進度較慢</li>\
+                </ul>';
             }
         }
         function downloadApp(){
@@ -382,7 +390,7 @@
 		document.getElementById("timeinfo").innerHTML="© NoyTeam 2019-"+new Date().getFullYear()
 	</script>
 	<!-- <script src="//code.tidio.co/blqxsl4e4ghrhhomct8z4jhc68dunmmc.js" async></script> -->
-    <script src="https://cdn.cncn3.cn/webstatic/2021_k3Y9lgr0/chat.min.js"></script>
+    <script src="https://cdn.cncn3.cn/webstatic/2021_OHqnzDAu/chat.min.js"></script>
     <script>
         window.addEventListener('load', ()=>{
             new Cluckchat({
