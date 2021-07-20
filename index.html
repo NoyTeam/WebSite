@@ -316,6 +316,27 @@
         <a style="display:inline;margin-left: 5px;" href="https://status.noyteam.online" target="_blank"><img alt="freshping" src="https://statuspage.freshping.io/badge/6b0f8156-3e52-4b9b-bb8c-7a4ccccc151d?0.5517256557041295"/> </a>
     </center>
 
+    <div class="modal fade show" id="error-dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">故障公告</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body" style="text-align: center;width: 100%;">
+                    <span>
+                        <i class="icon ion-md-alert"></i>
+                        可能有故障發生，請前往社區查看公告！
+                    </span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" onclick="javacript:window.location='https://www.noyteam.online';">前往社區</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section id="footer">
         <div class="container">
             <div class="heading-wrapper">
@@ -341,7 +362,8 @@
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/noyteam/js/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/online-support@1.0.0/src/jquery.min.js"></script>
+    <!-- <script src="https://cdn.jsdelivr.net/npm/noyteam/js/jquery-3.3.1.slim.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/bootstrap.min.js"></script>
     <script>
@@ -369,18 +391,20 @@
             }, 500)
         }
         function get(url){
-            var jsonInfo
-            var xhr=new XMLHttpRequest();
-            xhr.open('GET',url,false);
-            xhr.onreadystatechange=function(){
-                if(xhr.readyState==4){
-                    if(xhr.status==200 || xhr.status==304){
-                        jsonInfo = xhr.responseText;
+            $.ajax({
+                url: url,
+                timeout: 3000,
+                success: function(re){
+                    return re;
+                },
+                complete: function(XMLHttpRequest, status){
+                    if (status == "timeout"){
+                        ldown("loading-box");
+                        ldown("loading-bg");
+                        $('#error-dialog').modal('show');
                     }
-                }
-            }
-            xhr.send();
-            return jsonInfo;
+                },
+            })
         }
         var download_url
         function dl(system){
