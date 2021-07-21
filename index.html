@@ -369,9 +369,22 @@
     <script>
         var android_url
         window.onload = function(){
-            android_url = JSON.parse(get("https://api.noyteam.online/update"))['url'];
-            ldown("loading-box")
-            ldown("loading-bg")
+            $.ajax({
+                url: "https://api.noyteam.online/update",
+                timeout: 3000,
+                success: function(re){
+                    android_url = re['url'];
+                    ldown("loading-box")
+                    ldown("loading-bg")
+                },
+                complete: function(XMLHttpRequest, status){
+                    if (status == "timeout"){
+                        ldown("loading-box");
+                        ldown("loading-bg");
+                        $('#error-dialog').modal('show');
+                    }
+                },
+            })
 
             if(!!window.ActiveXObject || "ActiveXObject" in window){
                 let topt =  document.getElementById('top-t');
@@ -389,22 +402,6 @@
             setTimeout(function(){
                 document.getElementById(id).style.display = "none";
             }, 500)
-        }
-        function get(url){
-            $.ajax({
-                url: url,
-                timeout: 3000,
-                success: function(re){
-                    return re;
-                },
-                complete: function(XMLHttpRequest, status){
-                    if (status == "timeout"){
-                        ldown("loading-box");
-                        ldown("loading-bg");
-                        $('#error-dialog').modal('show');
-                    }
-                },
-            })
         }
         var download_url
         function dl(system){
