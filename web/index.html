@@ -5,7 +5,7 @@
 <head>
 	<meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-	<title>跳转提示</title>
+	<title>Jump To</title>
 
 	<script src="https://cdn.jsdelivr.net/npm/jquery@3.4.0/dist/jquery.min.js"></script>
 
@@ -79,13 +79,13 @@
 
 		$(function() {
 			$('#main').click(function() {
-				location.href = 'https://noy-webapp.vercel.app';
+				location.href = 'https://web.noy.asia/';
 			});
 			$('#backup').click(function() {
 			    location.href = 'https://gallant-davinci-cc86c9.netlify.app/';
 			});
 	  if (screen.width < 625){
-              alert("您的设备分辨率过低,使用体验可能下降");
+              alert("您的裝置分辨率過低，可能會影響體驗");
           }
 
 		});
@@ -95,16 +95,16 @@
 <body style="font-family: 'Microsoft YaHei';background: rgb(241, 241, 241);padding: 48px 16px 0 16px">
 
 	<div class="card">
-		<h3 style="margin: 0;margin-bottom: 16px" id="status">NoyACG Web 分流页面</h3>
-        <p class="notice">Tips: 所有线路采用同一个用户系统,请放心选择</p>
+		<h3 style="margin: 0;margin-bottom: 16px" id="status">NoyACG Web 分流頁面</h3>
+        <p class="notice">Tips: 所有分流共享同一個數據庫，請放心選擇</p>
         <p> </p>
-        <p class="tips"><b id="user-coutry">无法获取您所在的国家或地区,但还是</b> 请遵守当地法律法规😀</p>
+        <p class="tips"><b id="user-coutry">無法獲取您當前所在的國家或地區，但還是</b> 請遵守您當前所在的地區法律😀</p>
 		<div style="display: flex;justify-content: space-between">
 			<button id="main" class="button" style="text-decoration: none;width: 58%">
-				vercel线路 (<span id="verping"></span> ms)
+				Web分流1 (<span id="verping"></span> ms)
 			</button>
 			<button id="backup" class="button" style="text-decoration: none;width: 38%;background: purple">
-				备用线路 (<span id="nfping"></span> ms)
+				Web分流2 (<span id="nfping"></span> ms)
 			</button>
 		</div>
 	</div>
