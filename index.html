@@ -6,14 +6,15 @@
     <meta name="author" content="NoyAcg,NoyTeam,同人本,本子,R18漫畫">
     <meta name="description" content="NoyAcg是一個公益免費的本子平台，現已開放測試!">
     <link rel="preconnect" href="//fonts.gstatic.com">
-    <link rel="preconnect" href="//noy-webapp.vercel.app">
+    <link rel="preconnect" href="//web.noy.asia">
+    <link rel="preconnect" href="//web.noy.asia">
+    <link rel="preconnect" href="//web.noy.asia">
     <link rel="preconnect" href="//gallant-davinci-cc86c9.netlify.app">
     <link rel="preconnect" href="https://cdn.jsdelivr.net/npm/online-support@1.0.0/src/NotoSansCJK-Medium.otf">
-    <!-- <link rel="preconnect" href="//widget-v4.tidiochat.com"> -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noyteam/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/noyteam/css/site-main.css">
     <link href="https://cdn.jsdelivr.net/npm/noyteam/css/ionicons.min.css" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <link href="https://fonts.loli.net/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="assets/images/logo.webp" />
     <style type="text/css" media="screen">
         .line_m{text-decoration:line-through}
@@ -112,20 +113,17 @@
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav ml-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#hero">首頁</a>
-                    </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="//www.noyteam.online">社區</a>
+                        <a class="nav-link" href="//www.noyteam.online/?_from=_home_button">社區</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#grouplist">群組</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#roger">了解一下？</a>
+                        <a class="nav-link" href="//music.noy.asia/?_from=_home_button">Noy Music</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#faq">公告板</a>
+                        <a class="nav-link" href="//web.noy.asia/?_from=_home_button">Noy Book</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#footer">下載</a>
@@ -323,10 +321,10 @@
         </div>
     </section>
 
-    <center style="margin-bottom: 10%;">
+    <div style="margin-bottom: 10%;text-align: center;">
         <div style="display:inline;margin-right: 5px;" id="myssl_seal" onclick="window.open('https://myssl.com/seal/detail?domain=noy.asia','安全簽章','height=800,width=470,top=0,right=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')" style="text-align: center"><img alt="安全簽章" src="https://sealres.trustasia.com/seal/img/1x/seal.svg?domain=noy.asia" style="width: 130px;height: auto; cursor: pointer"></div>
         <a style="display:inline;margin-left: 5px;" href="https://status.noyteam.online" target="_blank"><img alt="freshping" src="https://statuspage.freshping.io/badge/6b0f8156-3e52-4b9b-bb8c-7a4ccccc151d?0.5517256557041295"/> </a>
-    </center>
+    </div>
 
     <div class="modal fade show" id="error-dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -356,7 +354,6 @@
 				<p>歡迎反饋！</p>
                 <a href="#" data-toggle="modal" data-target="#download" onclick="dl('Android')" data-target=".bs-example-modal-sm" class="primary-btn">Android</a>
                 <a href="#" data-toggle="modal" data-target="#download" onclick="dl('iOS')" data-target=".bs-example-modal-sm" class="primary-btn">iOS (内部測試中)</a>
-                <a href="#" data-toggle="modal" data-target="#download" onclick="dl('WebSite')" data-target=".bs-example-modal-sm" class="primary-btn">WebSite (開發中)</a>
             </div>
             <div class="row topmargin-lg">
                 <div class="col-md-4">
@@ -375,7 +372,6 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/online-support@1.0.0/src/jquery.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/noyteam/js/jquery-3.3.1.slim.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/bootstrap.min.js"></script>
     <script>
@@ -433,13 +429,6 @@
                 <ul>\
                     <li>因爲部分BUG，以及證書和分發問題，暫未開放</li>\
                 </ul>';
-            }else if (system == "WebSite"){
-                download_url = "/web/";
-                document.getElementById('download-button').innerHTML = "搶先測試";
-                document.getElementById("download-info").innerHTML = '<h5>開發中</h5>\
-                <ul>\
-                    <li>缺少APP的新版功能，開發進度較慢</li>\
-                </ul>';
             }
         }
         function downloadApp(){
@@ -449,7 +438,6 @@
 	<script>
 		document.getElementById("timeinfo").innerHTML="© NoyTeam 2019-"+new Date().getFullYear()
 	</script>
-	<!-- <script src="//code.tidio.co/blqxsl4e4ghrhhomct8z4jhc68dunmmc.js" async></script> -->
     <script src="https://cdn.cncn3.cn/webstatic/2021_OHqnzDAu/chat.min.js"></script>
     <script>
         window.addEventListener('load', ()=>{
