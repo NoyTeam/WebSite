@@ -119,10 +119,7 @@
                         <a class="nav-link" href="#" data-toggle="modal" data-target="#grouplist">群組</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="//music.noy.asia/?_from=_home_button">Noy Music</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="//web.noy.asia/?_from=_home_button">Noy Book</a>
+                        <a class="nav-link" href="#faq">公告板</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="#footer">下載</a>
@@ -352,7 +349,8 @@
                 <h3>下載測試版APP</h3>
 				<p>歡迎反饋！</p>
                 <a href="#" data-toggle="modal" data-target="#download" onclick="dl('Android')" data-target=".bs-example-modal-sm" class="primary-btn">Android</a>
-                <a href="#" data-toggle="modal" data-target="#download" onclick="dl('iOS')" data-target=".bs-example-modal-sm" class="primary-btn">iOS (内部測試中)</a>
+                <a href="#" data-toggle="modal" data-target="#download" onclick="dl('iOS')" data-target=".bs-example-modal-sm" class="primary-btn">iOS (測試中)</a>
+		<a href="https://web.noy.asia/?_from=_home_button" target="_blank" class="primary-btn">Web版 (可能缺少功能)</a>
             </div>
             <div class="row topmargin-lg">
                 <div class="col-md-4">
@@ -374,15 +372,15 @@
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/bootstrap.min.js"></script>
     <script>
-        var android_url
+        var android_url;
         window.onload = function(){
             $.ajax({
-                url: "https://api.noyteam.online/update",
+                url: "https://api.noy.asia/update",
                 timeout: 3000,
                 success: function(re){
                     android_url = re['url'];
-                    ldown("loading-box")
-                    ldown("loading-bg")
+                    ldown("loading-box");
+                    ldown("loading-bg");
                 },
                 complete: function(XMLHttpRequest, status){
                     if (status == "timeout"){
@@ -405,10 +403,10 @@
                 i = i-0.02;
                 document.getElementById(id).style.opacity = i;
                 if (i <= 0){clearInterval(in1);};
-            }, 10)
+            }, 10);
             setTimeout(function(){
                 document.getElementById(id).style.display = "none";
-            }, 500)
+            }, 500);
         }
         var download_url
         function dl(system){
@@ -433,10 +431,9 @@
         function downloadApp(){
             window.location = download_url;
         }
+
+	document.getElementById("timeinfo").innerHTML="© NoyTeam 2019-"+new Date().getFullYear();
     </script>
-	<script>
-		document.getElementById("timeinfo").innerHTML="© NoyTeam 2019-"+new Date().getFullYear()
-	</script>
     <script src="https://cdn.cncn3.cn/webstatic/2021_OHqnzDAu/chat.min.js"></script>
     <script>
         window.addEventListener('load', ()=>{
@@ -445,14 +442,13 @@
             })
         }, false)
     </script>
-	<!-- Global site tag (gtag.js) - Google Analytics -->
-	<script async src="https://www.googletagmanager.com/gtag/js?id=G-VCTFV4H8M4"></script>
-	<script>
-		window.dataLayer = window.dataLayer || [];
-		function gtag(){dataLayer.push(arguments);}
-		gtag('js', new Date());
-
-		gtag('config', 'G-VCTFV4H8M4');
-	</script>
+    <!-- Global site tag (gtag.js) - Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-VCTFV4H8M4"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
+        function gtag(){dataLayer.push(arguments);}
+        gtag('js', new Date());
+        gtag('config', 'G-VCTFV4H8M4');
+    </script>
 </body>
 </html>
