@@ -154,8 +154,8 @@
    <section id="roger">
         <div class="container">
             <div class="heading-wrapper">
-                <h2>了解一下？</h2>
-                <p>目前NoyTeam仍在創建初期，歡迎加入我們！<br></p>
+                <h2>瞭解一下？</h2>
+                <p>NoyTeam仍在創建初期，歡迎加入我們！<br></p>
             </div>
             <div id="accordion" class="topmargin-lg">
                 <div class="card">
@@ -318,7 +318,7 @@
         <div class="container">
             <div class="heading-wrapper">
                 <h2>簽章</h2>
-                <p>signature</p>
+                <p>Signature</p>
             </div>
         </div>
     </section>
@@ -375,7 +375,6 @@
     </section>
 
     <script src="https://cdn.jsdelivr.net/npm/online-support@1.0.0/src/jquery.min.js"></script>
-    <!-- <script src="https://cdn.jsdelivr.net/npm/noyteam/js/jquery-3.3.1.slim.min.js"></script> -->
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/bootstrap.min.js"></script>
     <script>
@@ -422,8 +421,8 @@
                 document.getElementById('download-button').innerHTML = "前往下載";
                 document.getElementById("download-info").innerHTML = '<h5>下載前須知</h5>\
                 <ul>\
-                    <li>我們使用邀請制，請找到你身邊使用NoyAcg的朋友索要邀請碼</li>\
-                    <li>公共邀請碼位於官網公告板</li>\
+                    <li>我們使用邀請制，公告板有公共邀請碼</li>\
+                    <li>也可以詢問你身邊的朋友</li>\
                     <li>NoyAcg 仍在測試，現階段可能存在很多BUG和沒有實現的功能</li>\
                 </ul>';
             }else if (system == "iOS"){
@@ -431,14 +430,7 @@
                 document.getElementById('download-button').innerHTML = "完成";
                 document.getElementById("download-info").innerHTML = '<h5>内部測試中</h5>\
                 <ul>\
-                    <li>因爲部分BUG，以及證書和分發問題，暫未開放</li>\
-                </ul>';
-            }else if (system == "WebSite"){
-                download_url = "/web/";
-                document.getElementById('download-button').innerHTML = "搶先測試";
-                document.getElementById("download-info").innerHTML = '<h5>開發中</h5>\
-                <ul>\
-                    <li>缺少APP的新版功能，開發進度較慢</li>\
+                    <li>BUG，證書同埋分發問題，暫未有開放</li>\
                 </ul>';
             }
         }
