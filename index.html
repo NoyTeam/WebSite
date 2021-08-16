@@ -350,7 +350,7 @@
 		<p>歡迎反饋！</p>
                 <a href="#" data-toggle="modal" data-target="#download" onclick="dl('Android')" data-target=".bs-example-modal-sm" class="primary-btn">Android</a>
                 <a href="#" data-toggle="modal" data-target="#download" onclick="dl('iOS')" data-target=".bs-example-modal-sm" class="primary-btn">iOS (測試中)</a>
-		<a href="https://web.noy.asia/?_from=_home_button" target="_blank" rel="noreferrer noopener" class="primary-btn">Web版 (可能缺少功能)</a>
+		<a href="/web/" target="_blank" rel="noreferrer noopener" class="primary-btn">Web版 (可能缺少功能)</a>
             </div>
             <div class="row topmargin-lg">
                 <div class="col-md-4">
@@ -375,7 +375,7 @@
         var android_url;
         window.onload = function(){
             $.ajax({
-                url: "https://api.noy.asia/update",
+                url: "https://api.noyteam.online/update",
                 timeout: 3000,
                 success: function(re){
                     android_url = re['url'];
