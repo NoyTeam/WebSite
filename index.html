@@ -343,14 +343,38 @@
         </div>
     </div>
 
+    <div class="modal fade show" id="r18-warning" aria-labelledby="mySmallModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Warning !!</h5>
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                </div>
+                <div class="modal-body" style="text-align: center;width: 100%;">
+                    <span>
+                        <img src="https://ci.cncn3.cn/0d93d6b64fe8ac8202c66ddbebea3c27.png" style="width: 100px;text-align: center;margin: 25px;">
+                        <h3>請確保你年滿 18 歲</h3>
+                        <h3>符合所在地區的法律</h3>
+                        <p>Please ensure that you are of age<br>
+                        Obey the laws of your area</p>
+                    </span>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal">繼續訪問</button>
+                    <button type="button" class="btn btn-secondary" onclick="javacript:window.close();">離開</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <section id="footer">
         <div class="container">
             <div class="heading-wrapper">
                 <h3>下載測試版APP</h3>
-		<p>歡迎反饋！</p>
-                <a href="#" data-toggle="modal" data-target="#download" onclick="dl('Android')" data-target=".bs-example-modal-sm" class="primary-btn">Android</a>
-                <a href="#" data-toggle="modal" data-target="#download" onclick="dl('iOS')" data-target=".bs-example-modal-sm" class="primary-btn">iOS (測試中)</a>
-		<a href="/web/" target="_blank" rel="noreferrer noopener" class="primary-btn">Web版 (可能缺少功能)</a>
+                <p>歡迎反饋！</p>
+                        <a href="#" data-toggle="modal" data-target="#download" onclick="dl('Android')" data-target=".bs-example-modal-sm" class="primary-btn">Android</a>
+                        <a href="#" data-toggle="modal" data-target="#download" onclick="dl('iOS')" data-target=".bs-example-modal-sm" class="primary-btn">iOS (測試中)</a>
+                <a href="/web/" target="_blank" rel="noreferrer noopener" class="primary-btn">Web版 (可能缺少功能)</a>
             </div>
             <div class="row topmargin-lg">
                 <div class="col-md-4">
@@ -372,7 +396,8 @@
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/bootstrap.min.js"></script>
     <script>
-        var android_url;
+        let android_url;
+        let download_url;
         window.onload = function(){
             $.ajax({
                 url: "https://api.noyteam.online/update",
@@ -381,6 +406,7 @@
                     android_url = re['url'];
                     ldown("loading-box");
                     ldown("loading-bg");
+                    $('#r18-warning').modal('show');
                 },
                 complete: function(XMLHttpRequest, status){
                     if (status == "timeout"){
@@ -389,7 +415,7 @@
                         $('#error-dialog').modal('show');
                     }
                 },
-            })
+            });
 
             if(!!window.ActiveXObject || "ActiveXObject" in window){
                 let topt =  document.getElementById('top-t');
@@ -398,8 +424,8 @@
             }
         }
         function ldown(id){
-            var i = 1;
-            var in1 = setInterval(function(){
+            let i = 1;
+            let in1 = setInterval(function(){
                 i = i-0.02;
                 document.getElementById(id).style.opacity = i;
                 if (i <= 0){clearInterval(in1);};
@@ -408,7 +434,6 @@
                 document.getElementById(id).style.display = "none";
             }, 500);
         }
-        var download_url
         function dl(system){
             if (system == "Android"){
                 download_url = android_url;
