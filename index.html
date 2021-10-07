@@ -365,6 +365,7 @@
                                 case "KR":country_code.innerText = '韓國';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元色情內容)";break;
                                 case "JP":country_code.innerText = '日本';break;
                                 case "CA":country_code.innerText = '加拿大';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元兒童色情內容)";break;
+                                default:country_code.innerText = re['country_code'];break;
                             }
                             $('#r18-warning').modal('show');
                         }
