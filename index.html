@@ -299,8 +299,10 @@
                     <span>
                         <img src="https://ci.cncn3.cn/0d93d6b64fe8ac8202c66ddbebea3c27.png" style="width: 100px;text-align: center;margin: 25px;">
                         <h3>請確保你年滿 18 歲</h3>
-                        <h3>符合你所在的地區 (<span id="country_code"></span>) 法律</h3>
-                        <p style="font-size: 50%;">We do not support the use of NoyAcg by minors.</p>
+                        <h4>符合你所在的地區 (<span id="country_code"></span>) 法律</h4>
+                        <p>Tips.</p>
+                        <span id="tips" style="font-size: 50%;"></span>
+                        <p style="font-size: 50%;">我們不支持未成年人使用 NoyAcg</p>
                     </span>
                 </div>
                 <div class="modal-footer">
@@ -355,12 +357,14 @@
                         async: true,
                         success: function(re){
                             let country_code = document.getElementById('country_code');
+                            let tips = document.getElementById('tips');
                             switch(re['country_code']){
                                 case "HK":country_code.innerText = '香港';break;
-                                case "CN":country_code.innerText = '中國大陸';break;
+                                case "CN":country_code.innerText = '中國大陸';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元色情內容)";break;
                                 case "TW":country_code.innerText = '臺灣';break;
-                                case "KR":country_code.innerText = '韓國';break;
+                                case "KR":country_code.innerText = '韓國';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元色情內容)";break;
                                 case "JP":country_code.innerText = '日本';break;
+                                case "CA":country_code.innerText = '加拿大';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元兒童色情內容)";break;
                             }
                             $('#r18-warning').modal('show');
                         }
