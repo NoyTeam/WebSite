@@ -1,0 +1,46 @@
+body {
+    padding-top: 70px;
+}
+header {
+    width: 100%;
+    position: fixed;
+    top: 0;
+    height: 60px;
+    line-height: 60px;
+    padding: 0 10px;
+    background-color: white;
+}
+header a {
+    font-size: 125%;
+    font-weight: bold;
+    text-decoration: none;
+    color: #6868ff;
+}
+.app {
+    max-width: 90%;
+    margin-left: 5%;
+}
+.title {
+    text-align: center;
+    width: 100%;
+}
+.text {
+    text-indent: 25px;
+}
+.text a {
+    text-decoration: none;
+    color: #4949ff;
+}
+.text li {
+    text-indent: 0;
+}
+footer {
+    text-align: center;
+    width: 100%;
+    padding-top: 20px;
+}
+.lang {
+    padding: 10px;
+    background-color: #ececec;
+    border-radius: 5px;
+}

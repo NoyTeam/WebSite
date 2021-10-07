@@ -30,76 +30,7 @@
     <link href="https://fonts.loli.net/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
     <link rel="shortcut icon" href="assets/images/logo.webp" />
     <style type="text/css" media="screen">
-        .line_m{text-decoration:line-through}
-        img{max-width:100%;}
-        @media screen and (min-width: 575px) {
-            .modal-dialog-faq{
-                max-width: 80%;
-            }
-            .modal-dialog-download{
-                max-width: 60%;
-            }
-        }
-        .loading-box {
-            position: fixed;
-            left: 0;
-            right: 0;
-            margin: auto;
-            z-index: 1029;
-        }
-        .loading-bg{
-            background-color: #f1f1f1;
-            position: fixed;
-            z-index: 1028;
-            width: 100%;
-            height: 100%;
-            opacity: 0.9;
-        }
-        .loading-an {
-            margin: 100px auto;
-            width: 50px;
-            height: 60px;
-            text-align: center;
-            font-size: 10px;
-        }
-        .loading-an > div {
-            background-color: #3988ff;
-            height: 100%;
-            width: 6px;
-            display: inline-block;
-            
-            -webkit-animation: stretchdelay 1.2s infinite ease-in-out;
-            animation: stretchdelay 1.2s infinite ease-in-out;
-        }
-        .loading-an .rect2 {
-            -webkit-animation-delay: -1.1s;
-            animation-delay: -1.1s;
-        }
-        .loading-an .rect3 {
-            -webkit-animation-delay: -1.0s;
-            animation-delay: -1.0s;
-        }
-        .loading-an .rect4 {
-            -webkit-animation-delay: -0.9s;
-            animation-delay: -0.9s;
-        }
-        .loading-an .rect5 {
-            -webkit-animation-delay: -0.8s;
-            animation-delay: -0.8s;
-        }
-        @-webkit-keyframes stretchdelay {
-            0%, 40%, 100% { -webkit-transform: scaleY(0.4) } 
-            20% { -webkit-transform: scaleY(1.0) }
-        }
-        @keyframes stretchdelay {
-            0%, 40%, 100% {
-                transform: scaleY(0.4);
-                -webkit-transform: scaleY(0.4);
-            }  20% {
-                transform: scaleY(1.0);
-                -webkit-transform: scaleY(1.0);
-            }
-        }
+        .line_m{text-decoration:line-through}img{max-width:100%}@media screen and (min-width:575px){.modal-dialog-faq{max-width:80%}.modal-dialog-download{max-width:60%}}.loading-box{position:fixed;left:0;right:0;margin:auto;z-index:1029}.loading-bg{background-color:#f1f1f1;position:fixed;z-index:1028;width:100%;height:100%;opacity:.9}.loading-an{margin:100px auto;width:50px;height:60px;text-align:center;font-size:10px}.loading-an>div{background-color:#3988ff;height:100%;width:6px;display:inline-block;-webkit-animation:stretchdelay 1.2s ease-in-out infinite;animation:stretchdelay 1.2s ease-in-out infinite}.loading-an .rect2{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}.loading-an .rect3{-webkit-animation-delay:-1s;animation-delay:-1s}.loading-an .rect4{-webkit-animation-delay:-.9s;animation-delay:-.9s}.loading-an .rect5{-webkit-animation-delay:-.8s;animation-delay:-.8s}@-webkit-keyframes stretchdelay{0%,40%,to{-webkit-transform:scaleY(.4)}20%{-webkit-transform:scaleY(1)}}@keyframes stretchdelay{0%,40%,to{transform:scaleY(.4);-webkit-transform:scaleY(.4)}20%{transform:scaleY(1);-webkit-transform:scaleY(1)}}
     </style>
     <title>NoyAcg | 以優質服務承載牛子和未來</title>
 </head>
@@ -368,9 +299,8 @@
                     <span>
                         <img src="https://ci.cncn3.cn/0d93d6b64fe8ac8202c66ddbebea3c27.png" style="width: 100px;text-align: center;margin: 25px;">
                         <h3>請確保你年滿 18 歲</h3>
-                        <h3>符合所在地區的法律</h3>
-                        <p>Please ensure that you are of age<br>
-                        Obey the laws of your area</p>
+                        <h3>符合你所在的地區 (<span id="country_code"></span>) 法律</h3>
+                        <p style="font-size: 50%;">We do not support the use of NoyAcg by minors.</p>
                     </span>
                 </div>
                 <div class="modal-footer">
@@ -388,7 +318,7 @@
                 <p>歡迎反饋！</p>
                         <a href="#" data-toggle="modal" data-target="#download" onclick="dl('Android')" data-target=".bs-example-modal-sm" class="primary-btn">Android</a>
                         <a href="#" data-toggle="modal" data-target="#download" onclick="dl('iOS')" data-target=".bs-example-modal-sm" class="primary-btn">iOS (測試中)</a>
-                <a href="/web/" target="_blank" rel="noreferrer noopener" class="primary-btn">Web版 (可能缺少功能)</a>
+                <a href="https://web.noy.asia" target="_blank" rel="noreferrer noopener" class="primary-btn">Web版 (可能缺少功能)</a>
             </div>
             <div class="row topmargin-lg">
                 <div class="col-md-4">
@@ -397,10 +327,9 @@
                 <div class="col-md-4">
                     <a href="https://twitter.com/noysupport" rel="noreferrer noopener" target="_blank"><i class="icon ion-logo-twitter"></i></a>
                     <a href="https://github.com/noyteam" rel="noreferrer noopener" target="_blank"><i class="icon ion-logo-github"></i></a>
-
                 </div>
                 <div class="col-md-4">
-                    <small>Powered by <a href="//noyteam.online/" target="_blank" rel="noreferrer noopener">NoyTeam</a></small>
+                    <small><a href="./page/privacy_agreement.html" target="_break">隱私協議</a> · Powered by <a href="//noyteam.online/" target="_blank" rel="noreferrer noopener">NoyTeam</a></small>
                 </div>
             </div>
         </div>
@@ -410,17 +339,32 @@
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/popper.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/bootstrap.min.js"></script>
     <script>
-        let android_url;
+        console.log("不要看喇，垃圾 Code (");
+
         let download_url;
         window.onload = function(){
             $.ajax({
-                url: "https://api.noyteam.online/update",
+                url: "https://api.noy.asia/update",
                 timeout: 3000,
                 success: function(re){
-                    android_url = re['url'];
+                    download_url = re['url'];
                     ldown("loading-box");
                     ldown("loading-bg");
-                    $('#r18-warning').modal('show');
+                    $.ajax({
+                        url: "https://api.ip.sb/geoip",
+                        async: true,
+                        success: function(re){
+                            let country_code = document.getElementById('country_code');
+                            switch(re['country_code']){
+                                case "HK":country_code.innerText = '香港';break;
+                                case "CN":country_code.innerText = '中國大陸';break;
+                                case "TW":country_code.innerText = '臺灣';break;
+                                case "KR":country_code.innerText = '韓國';break;
+                                case "JP":country_code.innerText = '日本';break;
+                            }
+                            $('#r18-warning').modal('show');
+                        }
+                    })
                 },
                 complete: function(XMLHttpRequest, status){
                     if (status == "timeout"){
@@ -433,7 +377,7 @@
 
             if(!!window.ActiveXObject || "ActiveXObject" in window){
                 let topt =  document.getElementById('top-t');
-                topt.innerHTML = '請不要使用 Internet Explorer 瀏覽器，點擊這裡下載新版本 <a href="https://www.microsoft.com/zh-tw/edge">Edge</a>'
+                topt.innerHTML = '請不要使用 Internet Explorer 瀏覽器，點擊這裏下載新版本 <a href="https://www.microsoft.com/zh-tw/edge">Edge</a>'
                 topt.style.display = "";
             }
         }
@@ -450,20 +394,19 @@
         }
         function dl(system){
             if (system == "Android"){
-                download_url = android_url;
                 document.getElementById('download-button').innerHTML = "前往下載";
                 document.getElementById("download-info").innerHTML = '<h5>下載前須知</h5>\
                 <ul>\
                     <li>我們使用邀請制，公告板有公共邀請碼</li>\
                     <li>也可以詢問你身邊的朋友</li>\
-                    <li>NoyAcg 仍在測試，現階段可能存在很多BUG和沒有實現的功能</li>\
+                    <li>NoyAcg 仍在測試，現階段可能存在很多BUG和未有實現的功能</li>\
                 </ul>';
             }else if (system == "iOS"){
                 download_url = "#";
                 document.getElementById('download-button').innerHTML = "完成";
                 document.getElementById("download-info").innerHTML = '<h5>内部測試中</h5>\
                 <ul>\
-                    <li>BUG，證書同埋分發問題，暫未有開放</li>\
+                    <li>BUG，證書同分發問題，暫未有開放</li>\
                 </ul>';
             }
         }
