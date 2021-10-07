@@ -298,16 +298,15 @@
                 <div class="modal-body" style="text-align: center;width: 100%;">
                     <span>
                         <img src="https://ci.cncn3.cn/0d93d6b64fe8ac8202c66ddbebea3c27.png" style="width: 100px;text-align: center;margin: 25px;">
-                        <h3>請確保你年滿 18 歲</h3>
-                        <h4>符合你所在的地區 (<span id="country_code"></span>) 法律</h4>
-                        <span>Tips.</span>
+                        <h3>請確保你年滿 18 周歲</h3>
+                        <h4>并且符合 <span id="country_code"></span> 的法律條款</h4>
                         <span id="tips" style="font-size: 75%;"></span>
-                        <p style="font-size: 75%;">我們不支持未成年人使用 NoyAcg</p>
+                        <p style="font-size: 0.95rem">*繼續訪問即代表您已閲讀我們的<a href="./page/privacy_agreement.html" target="_break">隱私協議</a></p>
                     </span>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" data-dismiss="modal">繼續訪問</button>
-                    <button type="button" class="btn btn-secondary" onclick="javacript:window.close();">離開</button>
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" title="真的要繼續訪問嗎">繼續訪問</button>
+                    <button type="button" class="btn btn-secondary" onclick="closepage()" >離開</button>
                 </div>
             </div>
         </div>
@@ -342,6 +341,26 @@
     <script src="https://cdn.jsdelivr.net/npm/noyteam/js/bootstrap.min.js"></script>
     <script>
         console.log("不要看喇，垃圾 Code (");
+
+        function closepage(){
+ if (navigator.userAgent.indexOf("MSIE") > 0) {
+  if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+   window.opener = null;
+   window.close();
+  } else {
+   window.open('', '_top');
+   window.top.close();
+  }
+ }
+ else if (navigator.userAgent.indexOf("Firefox") > 0) {
+  window.location.href = 'about:blank ';
+ } else {
+  window.opener = null;
+  window.open('', '_self', '');
+  window.close();
+ }
+}
+
 
         let download_url;
         window.onload = function(){
