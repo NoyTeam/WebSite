@@ -4,20 +4,20 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta name="keywords" content="NoyAcg,NoyTeam,同人本,本子,R18漫畫">
-    <meta name="description" content="NoyAcg 是一個來自火星的公益免費的本子社區，現已復活!">
+    <meta name="description" content="NoyAcg 是一個的公益免費的本子社區，現已復活!">
 	<!--share begin -->
-<meta property="og:title" content="NoyACG | 以優質服務承載牛子和未來">
-<meta property="og:description" content="NoyAcg 是一個來自火星的公益免費的本子社區，現已復活!">
-<meta property="og:image" content="https://www.noy.asia/assets/images/logo.webp">
-<meta property="og:url" content="https://www.noy.asia/?ins=og">
-<meta property="og:site_name" content="NoyACG">
-<!--share end -->
-<!-- add twitter meta begin -->
-<meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="NoyAcg | 以優質服務承載牛子和未來">
-<meta name="twitter:description" content="NoyAcg 是一個來自火星的公益免費的本子社區，現已復活!">
-<meta name="twitter:image" content="https://www.noy.asia/assets/images/logo.webp">
-<!-- add twitter meta end -->
+    <meta property="og:title" content="NoyACG | 以優質服務承載牛子和未來">
+    <meta property="og:description" content="NoyAcg 是一個公益免費的本子社區，現已復活!">
+    <meta property="og:image" content="https://www.noy.asia/assets/images/logo.webp">
+    <meta property="og:url" content="https://www.noy.asia/?ins=og">
+    <meta property="og:site_name" content="NoyACG">
+    <!--share end -->
+    <!-- add twitter meta begin -->
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:title" content="NoyAcg | 以優質服務承載牛子和未來">
+    <meta name="twitter:description" content="NoyAcg 是一個公益免費的本子社區，現已復活!">
+    <meta name="twitter:image" content="https://www.noy.asia/assets/images/logo.webp">
+    <!-- add twitter meta end -->
 
     <link rel="preconnect" href="//fonts.gstatic.com">
     <link rel="preconnect" href="//web.noy.asia">
@@ -299,14 +299,14 @@
                     <span>
                         <img src="https://ci.cncn3.cn/0d93d6b64fe8ac8202c66ddbebea3c27.png" style="width: 100px;text-align: center;margin: 25px;">
                         <h3>請確保你年滿 18 周歲</h3>
-                        <h4>并且符合 <span id="country_code"></span> 的法律條款</h4>
+                        <h4>并符合 <span id="country_code"></span> 的法律條款</h4>
                         <span id="tips" style="font-size: 75%;"></span>
                         <p style="font-size: 0.95rem">*繼續訪問即代表您已閲讀我們的<a href="./page/privacy_agreement.html" target="_break">隱私協議</a></p>
                     </span>
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-primary" data-dismiss="modal" title="真的要繼續訪問嗎">繼續訪問</button>
-                    <button type="button" class="btn btn-secondary" onclick="closepage()" >離開</button>
+                    <button type="button" class="btn btn-secondary" onclick="closepage()">離開</button>
                 </div>
             </div>
         </div>
@@ -317,8 +317,8 @@
             <div class="heading-wrapper">
                 <h3>下載測試版APP</h3>
                 <p>歡迎反饋！</p>
-                        <a href="#" data-toggle="modal" data-target="#download" onclick="dl('Android')" data-target=".bs-example-modal-sm" class="primary-btn">Android</a>
-                        <a href="#" data-toggle="modal" data-target="#download" onclick="dl('iOS')" data-target=".bs-example-modal-sm" class="primary-btn">iOS (測試中)</a>
+                <a href="#" data-toggle="modal" data-target="#download" onclick="dl('Android')" data-target=".bs-example-modal-sm" class="primary-btn">Android</a>
+                <a href="#" data-toggle="modal" data-target="#download" onclick="dl('iOS')" data-target=".bs-example-modal-sm" class="primary-btn">iOS (測試中)</a>
                 <a href="https://web.noy.asia" target="_blank" rel="noreferrer noopener" class="primary-btn">Web版 (可能缺少功能)</a>
             </div>
             <div class="row topmargin-lg">
@@ -343,24 +343,23 @@
         console.log("不要看喇，垃圾 Code (");
 
         function closepage(){
- if (navigator.userAgent.indexOf("MSIE") > 0) {
-  if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {
-   window.opener = null;
-   window.close();
-  } else {
-   window.open('', '_top');
-   window.top.close();
-  }
- }
- else if (navigator.userAgent.indexOf("Firefox") > 0) {
-  window.location.href = 'about:blank ';
- } else {
-  window.opener = null;
-  window.open('', '_self', '');
-  window.close();
- }
-}
-
+            if (navigator.userAgent.indexOf("MSIE") > 0) {
+                if (navigator.userAgent.indexOf("MSIE 6.0") > 0) {
+                    window.opener = null;
+                    window.close();
+                } else {
+                    window.open('', '_top');
+                    window.top.close();
+                }
+            }
+            else if (navigator.userAgent.indexOf("Firefox") > 0) {
+                window.location.href = 'about:blank';
+            } else {
+                window.opener = null;
+                window.open('', '_self', '');
+                window.close();
+            }
+        }
 
         let download_url;
         window.onload = function(){
