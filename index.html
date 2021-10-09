@@ -361,7 +361,7 @@
             }
         }
 
-        let download_url;
+        let download_url, android_url, ios_url;
         window.onload = function(){
             $.ajax({
                 url: "https://api.noy.asia/update",
@@ -424,8 +424,9 @@
                     <li>也可以詢問你身邊的朋友</li>\
                     <li>NoyAcg 仍在測試，現階段可能存在很多BUG和未有實現的功能</li>\
                 </ul>';
+		android_url = donwload_url;
             }else if (system == "iOS"){
-                download_url = "#";
+                ios_url = "#";
                 document.getElementById('download-button').innerHTML = "完成";
                 document.getElementById("download-info").innerHTML = '<h5>内部測試中</h5>\
                 <ul>\
@@ -434,7 +435,7 @@
             }
         }
         function downloadApp(){
-            window.location = download_url;
+            window.location = android_url;
         }
 
 	document.getElementById("timeinfo").innerHTML="© NoyTeam 2019-"+new Date().getFullYear();
