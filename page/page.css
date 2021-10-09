@@ -15,6 +15,7 @@ header a {
     font-weight: bold;
     text-decoration: none;
     color: #6868ff;
+    font-family: Arial, Helvetica, sans-serif !important;
 }
 .app {
     max-width: 90%;
