@@ -31,22 +31,38 @@
     <link rel="shortcut icon" href="assets/images/logo.webp" />
     <style type="text/css" media="screen">
         .line_m{text-decoration:line-through}img{max-width:100%}@media screen and (min-width:575px){.modal-dialog-faq{max-width:80%}.modal-dialog-download{max-width:60%}}.loading-box{position:fixed;left:0;right:0;margin:auto;z-index:1029}.loading-bg{background-color:#f1f1f1;position:fixed;z-index:1028;width:100%;height:100%;opacity:.9}.loading-an{margin:100px auto;width:50px;height:60px;text-align:center;font-size:10px}.loading-an>div{background-color:#3988ff;height:100%;width:6px;display:inline-block;-webkit-animation:stretchdelay 1.2s ease-in-out infinite;animation:stretchdelay 1.2s ease-in-out infinite}.loading-an .rect2{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}.loading-an .rect3{-webkit-animation-delay:-1s;animation-delay:-1s}.loading-an .rect4{-webkit-animation-delay:-.9s;animation-delay:-.9s}.loading-an .rect5{-webkit-animation-delay:-.8s;animation-delay:-.8s}@-webkit-keyframes stretchdelay{0%,40%,to{-webkit-transform:scaleY(.4)}20%{-webkit-transform:scaleY(1)}}@keyframes stretchdelay{0%,40%,to{transform:scaleY(.4);-webkit-transform:scaleY(.4)}20%{transform:scaleY(1);-webkit-transform:scaleY(1)}}
+        .test1 {animation-name: skyset;animation-duration: 1000ms;animation-iteration-count: infinite;animation-timing-function: steps(24);}
+        @-webkit-keyframes skyset {
+            0% {
+                color: red;
+            }
+            25% {
+                color: green;    
+            }
+            75% {
+                color: blue;
+            }
+            100% {
+                color: red;
+            }
+        }
     </style>
     <title>NoyAcg | 以優質服務承載牛子和未來</title>
 </head>
 
-<div class="loading-box" id="loading-box">
-    <div class="loading-an">
-        <div class="rect1"></div>
-        <div class="rect2"></div>
-        <div class="rect3"></div>
-        <div class="rect4"></div>
-        <div class="rect5"></div>
-    </div>
-</div>
-<div class="loading-bg" id="loading-bg"></div>
+<body style="font-family: 'Noto Sans TC', sans-serif;padding-top: 50px;">
 
-<body style="font-family: 'Noto Sans TC', sans-serif;">
+    <div class="loading-box" id="loading-box">
+        <div class="loading-an">
+            <div class="rect1"></div>
+            <div class="rect2"></div>
+            <div class="rect3"></div>
+            <div class="rect4"></div>
+            <div class="rect5"></div>
+        </div>
+    </div>
+    <div class="loading-bg" id="loading-bg"></div>
+
     <nav class="navbar navbar-expand-lg fixed-top">
         <div class="container">
             <a class="navbar-brand" href="/"><img src="assets/images/noy.png" style="height: 36px;" id="logo" class="img-fluid" alt="noyacg"></a>
@@ -74,7 +90,11 @@
         </div>
     </nav>
 
-    <div style="padding-top: 63px;">
+    <div style="position: fixed;top: 63px;width: 100%;z-index: 1030;">
+        <div style="height: 50px;line-height: 50px;background-color: #e9f3ff;text-align: center;">公共邀請碼在這裏：<a href="https://www.noyteam.online/d/24-noyacg-2021" target="_break"><b class="test1">2021 公共邀請碼</b></a></div>
+    </div>
+
+    <div style="padding-top: 113px;">
         <div id="top-t" style="height: 50px;line-height: 50px;background-color: #e9f3ff;text-align: center;display: none;"></div>
     </div>
 
