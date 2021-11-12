@@ -385,40 +385,42 @@
         }
 
         window.onload = function(){
+            // $.ajax({
+            //     url: "https://api.noy.asia/update",
+            //     timeout: 3000,
+            //     success: function(re){
+            //         download_url = re['url'];
+                    
+            //     },
+            //     complete: function(XMLHttpRequest, status){
+            //         if (status == "timeout"){
+            //             ldown("loading-box");
+            //             ldown("loading-bg");
+            //             $('#error-dialog').modal('show');
+            //         }
+            //     },
+            // });
+
+            ldown("loading-box");
+            ldown("loading-bg");
             $.ajax({
-                url: "https://api.noy.asia/update",
-                timeout: 3000,
+                url: "https://api.ip.sb/geoip",
+                async: true,
                 success: function(re){
-                    download_url = re['url'];
-                    ldown("loading-box");
-                    ldown("loading-bg");
-                    $.ajax({
-                        url: "https://api.ip.sb/geoip",
-                        async: true,
-                        success: function(re){
-                            let country_code = document.getElementById('country_code');
-                            let tips = document.getElementById('tips');
-                            switch(re['country_code']){
-                                case "HK":country_code.innerText = '香港';break;
-                                case "CN":country_code.innerText = '中國大陸';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元色情內容)";break;
-                                case "TW":country_code.innerText = '臺灣';break;
-                                case "KR":country_code.innerText = '韓國';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元色情內容)";break;
-                                case "JP":country_code.innerText = '日本';tips.innerText = "DMCA Warn for Japan";break;
-                                case "CA":country_code.innerText = '加拿大';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元兒童色情內容)";break;
-                                default:country_code.innerText = re['country_code'];break;
-                            }
-                            $('#r18-warning').modal('show');
-                        }
-                    })
-                },
-                complete: function(XMLHttpRequest, status){
-                    if (status == "timeout"){
-                        ldown("loading-box");
-                        ldown("loading-bg");
-                        $('#error-dialog').modal('show');
+                    let country_code = document.getElementById('country_code');
+                    let tips = document.getElementById('tips');
+                    switch(re['country_code']){
+                        case "HK":country_code.innerText = '香港';break;
+                        case "CN":country_code.innerText = '中國大陸';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元色情內容)";break;
+                        case "TW":country_code.innerText = '臺灣';break;
+                        case "KR":country_code.innerText = '韓國';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元色情內容)";break;
+                        case "JP":country_code.innerText = '日本';tips.innerText = "DMCA Warn for Japan";break;
+                        case "CA":country_code.innerText = '加拿大';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元兒童色情內容)";break;
+                        default:country_code.innerText = re['country_code'];break;
                     }
-                },
-            });
+                    $('#r18-warning').modal('show');
+                }
+            })
 
             if(!!window.ActiveXObject || "ActiveXObject" in window){
                 let topt =  document.getElementById('top-t');
@@ -456,7 +458,7 @@
             }
         }
         function downloadApp(){
-            window.location = download_url;
+            window.location = "https://www.noyteam.online/d/40-android-app-201-debug";
         }
 
 	document.getElementById("timeinfo").innerHTML="© NoyTeam 2019-"+new Date().getFullYear();
