@@ -217,7 +217,7 @@
                         </a>
                         <div class="blog-post-info">
                             <h5>NoyTeam 公開賬目</h5>
-                            <p>贊助統計/資金管理</p>
+                            <p>贊助統計</p>
                             <a href="https://bill.noyteam.online/" target="_blank" rel="noreferrer noopener">OPEN</a>
                         </div>
                     </div>
@@ -245,6 +245,7 @@
         <div class="modal-dialog modal-dialog-download">
             <div class="modal-content">
                 <div class="modal-header">
+                    <span style="font-size: 125%;" id="download-title">下載 NoyAcg</span>
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 </div>
                 <div class="modal-body" id="download-info">
@@ -252,7 +253,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">關閉</button>
-                    <button onclick="downloadApp()" id="download-button" type="button" class="btn btn-default" data-dismiss="modal"></button>
+                    <button onclick="downloadApp()" type="button" class="btn btn-default" data-dismiss="modal">即刻下載</button>
                 </div>
             </div>
         </div>
@@ -293,27 +294,6 @@
         <a style="display:inline;margin-left: 5px;" href="https://status.noyteam.online" target="_blank" rel="noreferrer noopener"><img alt="freshping" src="https://statuspage.freshping.io/badge/6b0f8156-3e52-4b9b-bb8c-7a4ccccc151d?0.5517256557041295" width="157px" height="41px"/> </a>
     </div>
 
-    <div class="modal fade show" id="error-dialog" aria-labelledby="mySmallModalLabel" aria-hidden="true">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title">故障公告</h5>
-                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
-                </div>
-                <div class="modal-body" style="text-align: center;width: 100%;">
-                    <span>
-                        <i class="icon ion-md-alert"></i>
-                        可能有故障發生，請前往社區查看公告！
-                    </span>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-primary" onclick="javacript:window.location='https://www.noyteam.online';">前往社區</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">關閉</button>
-                </div>
-            </div>
-        </div>
-    </div>
-
     <div class="modal fade show" id="r18-warning" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -324,7 +304,7 @@
                 <div class="modal-body" style="text-align: center;width: 100%;">
                     <span>
                         <img src="https://ci.cncn3.cn/0d93d6b64fe8ac8202c66ddbebea3c27.png" style="width: 100px;text-align: center;margin: 25px;">
-                        <h3>請確保你年滿 18 周歲</h3>
+                        <h3>請確保你年滿 18 歲</h3>
                         <h4>并符合 <span id="country_code"></span> 的法律條款</h4>
                         <span id="tips" style="font-size: 75%;"></span>
                         <p style="font-size: 0.95rem">*繼續訪問代表您已閲讀我們的<a href="./page/privacy_agreement_hk.html" target="_break">隱私協議</a></p>
@@ -344,7 +324,7 @@
                 <h3>下載 APP</h3>
                 <p>歡迎反饋！</p>
                 <a href="#" data-toggle="modal" data-target="#download" onclick="dl('Android')" data-target=".bs-example-modal-sm" class="primary-btn">Android</a>
-                <a href="#" data-toggle="modal" data-target="#download" onclick="dl('iOS')" data-target=".bs-example-modal-sm" class="primary-btn">iOS (測試中)</a>
+                <!-- <a href="#" data-toggle="modal" data-target="#download" onclick="dl('iOS')" data-target=".bs-example-modal-sm" class="primary-btn">iOS</a> -->
                 <a href="https://web.noy.asia" target="_blank" rel="noreferrer noopener" class="primary-btn">Web 網站</a>
             </div>
             <div class="row topmargin-lg">
@@ -389,22 +369,6 @@
         }
 
         window.onload = function(){
-            // $.ajax({
-            //     url: "https://api.noy.asia/update",
-            //     timeout: 3000,
-            //     success: function(re){
-            //         download_url = re['url'];
-                    
-            //     },
-            //     complete: function(XMLHttpRequest, status){
-            //         if (status == "timeout"){
-            //             ldown("loading-box");
-            //             ldown("loading-bg");
-            //             $('#error-dialog').modal('show');
-            //         }
-            //     },
-            // });
-
             ldown("loading-box");
             ldown("loading-bg");
             $.ajax({
@@ -445,20 +409,9 @@
         }
         function dl(system){
             if (system == "Android"){
-                document.getElementById('download-button').innerHTML = "前往下載";
-                document.getElementById("download-info").innerHTML = '<h5>下載前須知</h5>\
-                <ul>\
-                    <li>我們使用邀請制，公告板有公共邀請碼</li>\
-                    <li>也可以詢問你身邊的朋友</li>\
-                    <li>NoyAcg 仍在測試，現階段可能存在很多BUG和未有實現的功能</li>\
-                </ul>';
-            }else if (system == "iOS"){
-                ios_url = "#";
-                document.getElementById('download-button').innerHTML = "完成";
-                document.getElementById("download-info").innerHTML = '<h5>内部測試中</h5>\
-                <ul>\
-                    <li>BUG，證書同分發問題，暫未有開放</li>\
-                </ul>';
+                document.getElementById("download-info").innerHTML = `<ul>
+                    <h2>公共邀請碼是: <span style="color:red">NoyAcg2021</span></h2>
+                </ul>`;
             }
         }
         function downloadApp(){
