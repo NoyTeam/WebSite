@@ -22,15 +22,13 @@
     <meta name="twitter:description" content="NoyAcg 是一個公益免費的本子社區!">
     <meta name="twitter:image" content="https://www.noy.asia/assets/images/logo.webp">
     <!-- add twitter meta end -->
-    <link rel="preconnect" href="//fonts.gstatic.com">
     <link rel="preconnect" href="//web.noy.asia">
     <link rel="preconnect" href="//www.google-analytics.com">
-    <link rel="preconnect" href="//gstatic.loli.net">
     <link rel="preconnect" href="https://unpkg.zhimg.com/online-support@1.0.0/src/NotoSansCJK-Medium.otf">
     <link rel="stylesheet" href="https://unpkg.zhimg.com/noyteam/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.zhimg.com/noyteam/css/site-main.css">
     <link href="https://unpkg.zhimg.com/noyteam/css/ionicons.min.css" rel="stylesheet">
-    <link href="https://fonts.geekzu.org/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet">
+    <!-- <link href="https://fonts.geekzu.org/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet"> -->
     <link rel="shortcut icon" href="assets/images/logo.webp" />
     <style type="text/css" media="screen">
         .line_m{text-decoration:line-through}img{max-width:100%}@media screen and (min-width:575px){.modal-dialog-faq{max-width:80%}.modal-dialog-download{max-width:60%}}.loading-box{position:fixed;left:0;right:0;margin:auto;z-index:1029}.loading-bg{background-color:#f1f1f1;position:fixed;z-index:1028;width:100%;height:100%;opacity:.9}.loading-an{margin:100px auto;width:50px;height:60px;text-align:center;font-size:10px}.loading-an>div{background-color:#3988ff;height:100%;width:6px;display:inline-block;-webkit-animation:stretchdelay 1.2s ease-in-out infinite;animation:stretchdelay 1.2s ease-in-out infinite}.loading-an .rect2{-webkit-animation-delay:-1.1s;animation-delay:-1.1s}.loading-an .rect3{-webkit-animation-delay:-1s;animation-delay:-1s}.loading-an .rect4{-webkit-animation-delay:-.9s;animation-delay:-.9s}.loading-an .rect5{-webkit-animation-delay:-.8s;animation-delay:-.8s}@-webkit-keyframes stretchdelay{0%,40%,to{-webkit-transform:scaleY(.4)}20%{-webkit-transform:scaleY(1)}}@keyframes stretchdelay{0%,40%,to{transform:scaleY(.4);-webkit-transform:scaleY(.4)}20%{transform:scaleY(1);-webkit-transform:scaleY(1)}}
@@ -54,7 +52,6 @@
 </head>
 
 <body style="font-family: 'Noto Sans TC', sans-serif;padding-top: 50px;">
-
     <div class="loading-box" id="loading-box">
         <div class="loading-an">
             <div class="rect1"></div>
@@ -340,9 +337,16 @@
     <script src="https://unpkg.zhimg.com/online-support@1.0.0/src/jquery.min.js"></script>
     <script src="https://unpkg.zhimg.com/noyteam/js/popper.min.js"></script>
     <script src="https://unpkg.zhimg.com/noyteam/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.zhimg.com/webfontloader@1.6.28"></script>
     <script>
-        console.log("不要看喇，垃圾 Code (");
-
+        WebFont.load({
+            google: {
+                families: ['Noto Sans TC'],
+                api: 'https://fonts.geekzu.org/css2',
+            },
+        });
+    </script>
+    <script>
         let download_url, android_url, ios_url;
         function closepage(){
             if (navigator.userAgent.indexOf("MSIE") > 0) {
@@ -363,10 +367,15 @@
             }
         }
 
-        window.onload = ()=>{
+        addEventListener('load', ()=>{
             ldown("loading-box");
             ldown("loading-bg");
             document.getElementById("sig").innerHTML=`<div style="display:inline;margin-right: 5px;" id="myssl_seal" onclick="window.open('https://myssl.com/seal/detail?domain=noy.asia','安全簽章','height=800,width=470,top=0,right=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')" style="text-align: center"><img alt="安全簽章" src="https://sealres.trustasia.com/seal/img/1x/seal.svg?domain=noy.asia" width="130px" height="39px" style="cursor: pointer"></div><a style="display:inline;margin-left: 5px;" href="https://status.noyteam.online" target="_blank" rel="noreferrer noopener"><img alt="freshping" src="https://statuspage.freshping.io/badge/6b0f8156-3e52-4b9b-bb8c-7a4ccccc151d?0.5517256557041295" width="157px" height="41px"/></a>`;
+            if(!!window.ActiveXObject || "ActiveXObject" in window){
+                let topt =  document.getElementById('top-t');
+                topt.innerHTML = '請不要使用 Internet Explorer 瀏覽器，點擊這裏下載新版本 <a href="https://www.microsoft.com/zh-tw/edge">Edge</a>'
+                topt.style.display = "";
+            }
             $.ajax({
                 url: "https://api.ip.sb/geoip",
                 async: true,
@@ -395,13 +404,7 @@
                     $('#r18-warning').modal('show');
                 }
             })
-
-            if(!!window.ActiveXObject || "ActiveXObject" in window){
-                let topt =  document.getElementById('top-t');
-                topt.innerHTML = '請不要使用 Internet Explorer 瀏覽器，點擊這裏下載新版本 <a href="https://www.microsoft.com/zh-tw/edge">Edge</a>'
-                topt.style.display = "";
-            }
-        }
+        }, false);
         function ldown(id){
             let i = 1;
             let in1 = setInterval(function(){
