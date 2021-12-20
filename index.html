@@ -287,10 +287,7 @@
         </div>
     </section>
 
-    <div style="margin-bottom: 10%;text-align: center;">
-        <div style="display:inline;margin-right: 5px;" id="myssl_seal" onclick="window.open('https://myssl.com/seal/detail?domain=noy.asia','安全簽章','height=800,width=470,top=0,right=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')" style="text-align: center"><img alt="安全簽章" src="https://sealres.trustasia.com/seal/img/1x/seal.svg?domain=noy.asia" width="130px" height="39px" style="cursor: pointer"></div>
-        <a style="display:inline;margin-left: 5px;" href="https://status.noyteam.online" target="_blank" rel="noreferrer noopener"><img alt="freshping" src="https://statuspage.freshping.io/badge/6b0f8156-3e52-4b9b-bb8c-7a4ccccc151d?0.5517256557041295" width="157px" height="41px"/> </a>
-    </div>
+    <div style="margin-bottom: 10%;text-align: center;" id="sig"></div>
 
     <div class="modal fade show" id="r18-warning" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -299,7 +296,7 @@
                     <h5 class="modal-title">Warning !!</h5>
                     <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
                 </div>
-                <div class="modal-body" style="text-align: center;width: 100%;">
+                <div class="modal-body" style="text-align: center;width: 100%;" id="r18-warning-content">
                     <span>
                         <img src="https://ci.cncn3.cn/0d93d6b64fe8ac8202c66ddbebea3c27.png" style="width: 100px;text-align: center;margin: 25px;">
                         <h3>請確保你年滿 18 歲</h3>
@@ -366,13 +363,14 @@
             }
         }
 
-        window.onload = function(){
+        window.onload = ()=>{
             ldown("loading-box");
             ldown("loading-bg");
+            document.getElementById("sig").innerHTML=`<div style="display:inline;margin-right: 5px;" id="myssl_seal" onclick="window.open('https://myssl.com/seal/detail?domain=noy.asia','安全簽章','height=800,width=470,top=0,right=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')" style="text-align: center"><img alt="安全簽章" src="https://sealres.trustasia.com/seal/img/1x/seal.svg?domain=noy.asia" width="130px" height="39px" style="cursor: pointer"></div><a style="display:inline;margin-left: 5px;" href="https://status.noyteam.online" target="_blank" rel="noreferrer noopener"><img alt="freshping" src="https://statuspage.freshping.io/badge/6b0f8156-3e52-4b9b-bb8c-7a4ccccc151d?0.5517256557041295" width="157px" height="41px"/></a>`;
             $.ajax({
                 url: "https://api.ip.sb/geoip",
                 async: true,
-                success: function(re){
+                success: (re)=>{
                     let country_code = document.getElementById('country_code');
                     let tips = document.getElementById('tips');
                     switch(re['country_code']){
@@ -384,6 +382,16 @@
                         case "CA":country_code.innerText = '加拿大';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元兒童色情內容)";break;
                         default:country_code.innerText = re['country_code'];break;
                     }
+                    $('#r18-warning').modal('show');
+                },
+                error: ()=>{
+                    document.getElementById("r18-warning-content").innerHTML=`<span>
+                        <img src="https://ci.cncn3.cn/0d93d6b64fe8ac8202c66ddbebea3c27.png" style="width: 100px;text-align: center;margin: 25px;">
+                        <h3>請確保你年滿 18 歲</h3>
+                        <h4>并符合你所在地區的法律條款</h4>
+                        <span id="tips" style="font-size: 75%;">Tips.你可能封鎖了IP追蹤器，這是安全的</span>
+                        <p style="font-size: 0.95rem">*繼續訪問代表您已閲讀我們的<a href="./page/privacy_agreement_hk.html" target="_break">隱私協議</a></p>
+                    </span>`;
                     $('#r18-warning').modal('show');
                 }
             })
@@ -411,11 +419,11 @@
             }
         }
         function downloadApp(){
-	    window.open("https://unpkg.zhimg.com/noyacg-app@2.1.0/asia.noy.now_2.1.apk");
+	        window.open("https://unpkg.zhimg.com/noyacg-app@2.1.0/asia.noy.now_2.1.apk");
             window.location = "https://www.noyteam.online/d/49-android-app-21-upgrade";
         }
 
-	document.getElementById("timeinfo").innerHTML="© NoyTeam 2019-"+new Date().getFullYear();
+	    document.getElementById("timeinfo").innerHTML="© NoyTeam 2019-"+new Date().getFullYear();
     </script>
     <script type="text/javascript">window.$crisp=[];window.CRISP_WEBSITE_ID="5e706e7e-84b1-4eb5-aa7c-12e0bff47342";(function(){d=document;s=d.createElement("script");s.src="https://client.crisp.chat/l.js";s.async=1;d.getElementsByTagName("head")[0].appendChild(s);})();</script>
     <!-- Global site tag (gtag.js) - Google Analytics -->
