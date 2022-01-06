@@ -47,6 +47,14 @@
                 color: red;
             }
         }
+        /* #hero {
+            margin-top: 0;
+            padding-top: 120px;
+            background-image: url(./assets/images/bg.png);
+            background-size: cover;
+            background-attachment: fixed;
+            background-repeat: no-repeat;
+        } */
     </style>
     <title>NoyAcg | 以優質服務承載牛子和未來</title>
 </head>
@@ -91,7 +99,7 @@
     </nav>
 
     <div style="position: fixed;top: 63px;width: 100%;z-index: 1;">
-        <div style="height: 50px;line-height: 50px;background-color: #e9f3ff;text-align: center;">公共邀請碼在這裏：<a href="https://www.noyteam.online/d/24-noyacg-2021" target="_break"><b class="test1">2021 公共邀請碼 (點這個)</b></a></div>
+        <div style="height: 50px;line-height: 50px;background-color: #e9f3ff;text-align: center;">公共邀請碼：<b class="test1">NoyAcg2022</b></div>
     </div>
 
     <div style="padding-top: 63px;">
@@ -367,19 +375,19 @@
             }
         }
 
-        addEventListener('load', ()=>{
-            ldown("loading-box");
-            ldown("loading-bg");
-            document.getElementById("sig").innerHTML=`<div style="display:inline;margin-right: 5px;" id="myssl_seal" onclick="window.open('https://myssl.com/seal/detail?domain=noy.asia','安全簽章','height=800,width=470,top=0,right=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no')" style="text-align: center"><img alt="安全簽章" src="https://sealres.trustasia.com/seal/img/1x/seal.svg?domain=noy.asia" width="130px" height="39px" style="cursor: pointer"></div><a style="display:inline;margin-left: 5px;" href="https://status.noyteam.online" target="_blank" rel="noreferrer noopener"><img alt="freshping" src="https://statuspage.freshping.io/badge/6b0f8156-3e52-4b9b-bb8c-7a4ccccc151d?0.5517256557041295" width="157px" height="41px"/></a>`;
+        addEventListener('load', function(){
             if(!!window.ActiveXObject || "ActiveXObject" in window){
                 let topt =  document.getElementById('top-t');
                 topt.innerHTML = '請不要使用 Internet Explorer 瀏覽器，點擊這裏下載新版本 <a href="https://www.microsoft.com/zh-tw/edge">Edge</a>'
                 topt.style.display = "";
             }
+            ldown("loading-box");
+            ldown("loading-bg");
+            document.getElementById("sig").innerHTML='<div style="display:inline;margin-right: 5px;" id="myssl_seal" onclick="window.open(\'https://myssl.com/seal/detail?domain=noy.asia\',\'安全簽章\',\'height=800,width=470,top=0,right=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no\')" style="text-align: center"><img alt="安全簽章" src="https://sealres.trustasia.com/seal/img/1x/seal.svg?domain=noy.asia" width="130px" height="39px" style="cursor: pointer"></div><a style="display:inline;margin-left: 5px;" href="https://status.noyteam.online" target="_blank" rel="noreferrer noopener"><img alt="freshping" src="https://statuspage.freshping.io/badge/6b0f8156-3e52-4b9b-bb8c-7a4ccccc151d?0.5517256557041295" width="157px" height="41px"/></a>';
             $.ajax({
                 url: "https://api.ip.sb/geoip",
                 async: true,
-                success: (re)=>{
+                success: function(re){
                     let country_code = document.getElementById('country_code');
                     let tips = document.getElementById('tips');
                     switch(re['country_code']){
@@ -393,14 +401,14 @@
                     }
                     $('#r18-warning').modal('show');
                 },
-                error: ()=>{
-                    document.getElementById("r18-warning-content").innerHTML=`<span>
-                        <img src="https://ci.cncn3.cn/0d93d6b64fe8ac8202c66ddbebea3c27.png" style="width: 100px;text-align: center;margin: 25px;">
-                        <h3>請確保你年滿 18 歲</h3>
-                        <h4>并符合你所在地區的法律條款</h4>
-                        <span id="tips" style="font-size: 75%;">Tips.你可能封鎖了IP追蹤器，這是安全的</span>
-                        <p style="font-size: 0.95rem">*繼續訪問代表您已閲讀我們的<a href="./page/privacy_agreement_hk.html" target="_break">隱私協議</a></p>
-                    </span>`;
+                error: function(){
+                    document.getElementById("r18-warning-content").innerHTML='<span>\
+                        <img src="https://ci.cncn3.cn/0d93d6b64fe8ac8202c66ddbebea3c27.png" style="width: 100px;text-align: center;margin: 25px;">\
+                        <h3>請確保你年滿 18 歲</h3>\
+                        <h4>并符合你所在地區的法律條款</h4>\
+                        <span id="tips" style="font-size: 75%;">Tips.你可能封鎖了IP追蹤器，這是安全的</span>\
+                        <p style="font-size: 0.95rem">*繼續訪問代表您已閲讀我們的<a href="./page/privacy_agreement_hk.html" target="_break">隱私協議</a></p>\
+                    </span>';
                     $('#r18-warning').modal('show');
                 }
             })
@@ -418,7 +426,7 @@
         }
         function dl(system){
             if (system == "Android"){
-                document.getElementById("download-info").innerHTML = `<h2>公共邀請碼是: <span style="color:red">NoyAcg2021</span></h2>`;
+                document.getElementById("download-info").innerHTML = '<h2>公共邀請碼是: <span style="color:red">NoyAcg2022</span></h2>';
             }
         }
         function downloadApp(){
