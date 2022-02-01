@@ -47,10 +47,10 @@
     <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.noy.asia" crossorigin>
 
-    <link rel="preconnect" href="https://unpkg.zhimg.com/online-support@1.0.0/src/NotoSansCJK-Medium.otf">
-    <link rel="stylesheet" href="https://unpkg.zhimg.com/noyteam@1145.1.4/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://unpkg.zhimg.com/noyteam@1145.1.4/css/site-main.css">
-    <link href="https://unpkg.zhimg.com/noyteam@1145.1.4/css/ionicons.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://cdnjs.noy.asia/npm/online-support@1.0.0/src/NotoSansCJK-Medium.otf">
+    <link rel="stylesheet" href="https://cdnjs.noy.asia/npm/noyteam@1145.1.4/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.noy.asia/npm/noyteam@1145.1.4/css/site-main.css">
+    <link href="https://cdnjs.noy.asia/npm/noyteam@1145.1.4/css/ionicons.min.css" rel="stylesheet">
     <!-- <link href="https://fonts.geekzu.org/css2?family=Noto+Sans+TC&display=swap" rel="stylesheet"> -->
     <link rel="shortcut icon" href="assets/images/logo.webp" />
     <style type="text/css" media="screen">
@@ -80,6 +80,12 @@
         } */
     </style>
     <title>NoyAcg | 以優質服務承載牛子和未來</title>
+    <!-- Jump to Main Domain -->
+    <script>
+        if (location.hostname.split('.').reverse().splice(0,2).reverse().join('.') !== 'noy.asia'){
+            window.location.replace("https://noy.asia/").decodeURI(window.location.search);
+        }
+    </script>
 </head>
 
 <body style="font-family: 'Noto Sans TC', sans-serif;padding-top: 50px;">
@@ -381,10 +387,10 @@
         </div>
     </section>
 
-    <script src="https://unpkg.zhimg.com/online-support@1.0.0/src/jquery.min.js"></script>
-    <script src="https://unpkg.zhimg.com/noyteam@1145.1.4/js/popper.min.js"></script>
-    <script src="https://unpkg.zhimg.com/noyteam@1145.1.4/js/bootstrap.min.js"></script>
-    <script src="https://unpkg.zhimg.com/webfontloader@1.6.28/webfontloader.js"></script>
+    <script src="https://cdnjs.noy.asia/npm/online-support@1.0.0/src/jquery.min.js"></script>
+    <script src="https://cdnjs.noy.asia/npm/noyteam@1145.1.4/js/popper.min.js"></script>
+    <script src="https://cdnjs.noy.asia/npm/noyteam@1145.1.4/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.noy.asia/npm/webfontloader@1.6.28/webfontloader.js"></script>
     <script src="https://cdn.cncn3.cn/webstatic/82c9840a997a3/chat.min.js"></script>
     <script>
         WebFont.load({
@@ -475,7 +481,7 @@
             }
         }
         function downloadApp(){
-	        window.open("https://npm.elemecdn.com/noyacg-app/asia.noy.now_2.2.apk");
+	        window.open("https://cdnjs.noy.asia/npm/noyacg-app/asia.noy.now_2.2.apk");
             window.location = "https://forum.noy.asia/d/60-android-app-22-upgrade";
         }
 
