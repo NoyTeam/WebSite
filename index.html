@@ -38,8 +38,15 @@
             "url": "https:\/\/noy.asia"
         }]
 	</script>
-    <link rel="preconnect" href="//web.noy.asia">
-    <link rel="preconnect" href="//www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://www.gstatic.com" crossorigin>
+    <link rel="dns-prefetch" href="https://cdnjs.noy.asia" crossorigin>
+
+    <link rel="preconnect" href="https://web.noy.asia" crossorigin>
+    <link rel="preconnect" href="https://npm.elemecdn.com" crossorigin>
+    <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+    <link rel="preconnect" href="https://www.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://cdnjs.noy.asia" crossorigin>
+
     <link rel="preconnect" href="https://unpkg.zhimg.com/online-support@1.0.0/src/NotoSansCJK-Medium.otf">
     <link rel="stylesheet" href="https://unpkg.zhimg.com/noyteam@1145.1.4/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.zhimg.com/noyteam@1145.1.4/css/site-main.css">
@@ -76,6 +83,22 @@
 </head>
 
 <body style="font-family: 'Noto Sans TC', sans-serif;padding-top: 50px;">
+    <!-- ARMS遥测 -->
+    <script>
+        !(function(c,b,d,a){c[a]||(c[a]={});c[a].config=
+          {
+            pid:"f1bzuttw3q@6ed5c110d10de64",
+            appType:"web",
+            imgUrl:"https://arms-retcode.aliyuncs.com/r.png?",
+            sendResource:true,
+            enableLinkTrace:true,
+            behavior:true,
+            useFmp:true,
+            enableSPA:true
+          };
+        with(b)with(body)with(insertBefore(createElement("script"),firstChild))setAttribute("crossorigin","",src=d)
+        })(window,document,"https://retcode.alicdn.com/retcode/bl.js","__bl");
+        </script>
     <div class="loading-box" id="loading-box">
         <div class="loading-an">
             <div class="rect1"></div>
@@ -362,7 +385,7 @@
     <script src="https://unpkg.zhimg.com/noyteam@1145.1.4/js/popper.min.js"></script>
     <script src="https://unpkg.zhimg.com/noyteam@1145.1.4/js/bootstrap.min.js"></script>
     <script src="https://unpkg.zhimg.com/webfontloader@1.6.28/webfontloader.js"></script>
-    <script src="https://cdn.cncn3.cn/webstatic/821fb8ac40ed4/chat.min.js"></script>
+    <script src="https://cdn.cncn3.cn/webstatic/82c9840a997a3/chat.min.js"></script>
     <script>
         WebFont.load({
             google: {
