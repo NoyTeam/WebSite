@@ -350,7 +350,7 @@
                     <span>
                         <img src="https://ci.cncn3.cn/0d93d6b64fe8ac8202c66ddbebea3c27.png" style="width: 100px;text-align: center;margin: 25px;">
                         <h3>請確保你年滿 18 歲</h3>
-                        <h4>并符合 <span id="country_code"></span> 的法律條款</h4>
+                        <h4>并符合 <span id="country"></span> 的法律條款</h4>
                         <span id="tips" style="font-size: 75%;"></span>
                         <p style="font-size: 0.95rem">*繼續訪問代表您已閲讀我們的<a href="./page/privacy_agreement_hk.html" target="_break">隱私協議</a></p>
                     </span>
@@ -436,16 +436,16 @@
                 url: "https://api.ip.sb/geoip",
                 async: true,
                 success: function(re){
-                    let country_code = document.getElementById('country_code');
+                    let country = document.getElementById('country');
                     let tips = document.getElementById('tips');
-                    switch(re['country_code']){
-                        case "HK":country_code.innerText = '香港';break;
-                        case "CN":country_code.innerText = '中國大陸';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元色情內容)";break;
-                        case "TW":country_code.innerText = '臺灣';break;
-                        case "KR":country_code.innerText = '韓國';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元色情內容)";break;
-                        case "JP":country_code.innerText = '日本';tips.innerText = "DMCA Warn for Japan";break;
-                        case "CA":country_code.innerText = '加拿大';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元兒童色情內容)";break;
-                        default:country_code.innerText = re['country_code'];break;
+                    switch(re['country']){
+                        case "HK":country.innerText = '香港';break;
+                        case "CN":country.innerText = '中國大陸';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元色情內容)";break;
+                        case "TW":country.innerText = '臺灣';break;
+                        case "KR":country.innerText = '韓國';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元色情內容)";break;
+                        case "JP":country.innerText = '日本';tips.innerText = "DMCA Warn for Japan";break;
+                        case "CA":country.innerText = '加拿大';tips.innerText = "我們不推薦在你所在的地區使用 NoyAcg (二次元兒童色情內容)";break;
+                        default:country.innerText = re['country'];break;
                     }
                     $('#r18-warning').modal('show');
                 },
