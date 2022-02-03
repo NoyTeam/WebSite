@@ -433,7 +433,7 @@
             <a style="display:inline;margin-left: 5px;" href="https://status.forum.noy.asia" target="_blank" rel="noreferrer noopener"><img alt="freshping" src="https://statuspage.freshping.io/badge/6b0f8156-3e52-4b9b-bb8c-7a4ccccc151d?0.5517256557041295" width="157px" height="41px"/></a>\
             <a style="display:inline;margin-left: 5px;" href="https://www.quantumca.com.cn/" target="_blank" rel="noreferrer noopener"><img alt="quantumca" style="border-radius: 5px 5px 5px 10px;border: #3c3c3c45 solid 1px;" src="https://www.quantumca.com.cn/assets/front-site/img/trust-seal-badge-ssl.png" weight="106.69px" height="41px"/></a>';
             $.ajax({
-                url: "https://api.ip.sb/geoip",
+                url: "https://public-api.noy.asia/api/geoip",
                 async: true,
                 success: function(re){
                     let country = document.getElementById('country');
