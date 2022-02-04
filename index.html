@@ -70,6 +70,51 @@
                 color: red;
             }
         }
+        .marquee {
+            width: 100%;
+            margin: 0 auto;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .marquee span {
+            display: inline-block;
+            width: max-content;
+            padding-left: 100%;
+            will-change: transform;
+            animation: marquee 15s linear infinite;
+            margin-bottom: 20px;
+        }
+        .marquee span:hover {
+            animation-play-state: paused
+        }
+        @keyframes marquee {
+            0% { transform: translate(0, 0); }
+            100% { transform: translate(-100%, 0); }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .marquee span {
+                animation-iteration-count: 1;
+                animation-duration: 0.05; 
+                width: auto;
+                padding-left: 0;
+            }
+        }
+        .pc-text {
+            display: inline-block;
+            padding: 0 20px 0 10px;
+        }
+        .pc-img {
+            border-radius: 50%;
+            height: 60px;
+            display: inline-block;
+        }
+        .pcard{ 
+            border-radius: 999em;
+            background-color: #f1f0f0;
+            height: 60px;
+            display: inline-block;
+            margin-right: 30px;
+        }
         /* #hero {
             margin-top: 0;
             padding-top: 120px;
@@ -83,7 +128,7 @@
     <!-- Jump to Main Domain -->
     <script>
         if (location.hostname.split('.').reverse().splice(0,2).reverse().join('.') !== 'noy.asia'){
-            window.location.replace("https://noy.asia/").decodeURI(window.location.search);
+            // window.location.replace("https://noy.asia/").decodeURI(window.location.search);
         }
     </script>
 </head>
@@ -328,16 +373,39 @@
         </div>
     </div>
 
-    <section id="signature">
+    <section id="thanks">
         <div class="container">
             <div class="heading-wrapper">
-                <h2>簽章</h2>
-                <p>Signature</p>
+                <h2>感謝</h2>
+                <p>Thanks</p>
             </div>
         </div>
     </section>
 
-    <div style="margin-bottom: 10%;text-align: center;" id="sig"></div>
+    <div class="marquee" style="margin-bottom: 200px;text-align: center;">
+        <span id="thp1">
+            <div class="pcard">
+                <img src="https://ci.cncn3.cn/a634a7b684182dfb22590cf0e60fb63f.jpg" class="pc-img">
+                <p class="pc-text"><b>Coconut (我)</b>: 開發者、內容管理</p>
+            </div>
+            <div class="pcard">
+                <img src="https://ci.cncn3.cn/32b4168c11ddab0b52d025cdde19d40b.jpg" class="pc-img">
+                <p class="pc-text"><b>NekoHat</b>: 提供伺服器網絡CDN、SEO優化</p>
+            </div>
+            <div class="pcard">
+                <img src="https://ci.cncn3.cn/1addbf5c8f72bcc59eb192cfc8c222f2.jpg" class="pc-img">
+                <p class="pc-text"><b>agou</b>: 部分專案UI設計指導</p>
+            </div>
+            <div class="pcard">
+                <img src="https://ci.cncn3.cn/170cb449b09016b0a184beca9c43c073.jpg" class="pc-img">
+                <p class="pc-text"><b>狐狸</b>: 讚助最多的群友</p>
+            </div>
+            <div class="pcard">
+                <img src="https://ci.cncn3.cn/957edf120ed3e68072e9256f665d725e.jpg" class="pc-img">
+                <p class="pc-text"><b>jim wong</b>: 牛子支持</p>
+            </div>
+        </span>
+    </div>
 
     <div class="modal fade show" id="r18-warning" aria-labelledby="mySmallModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -429,9 +497,6 @@
             }
             ldown("loading-box");
             ldown("loading-bg");
-            document.getElementById("sig").innerHTML='<div style="display:inline;margin-right: 5px;" id="myssl_seal" onclick="window.open(\'https://myssl.com/seal/detail?domain=noy.asia\',\'安全簽章\',\'height=800,width=470,top=0,right=0,toolbar=no,menubar=no,scrollbars=no,resizable=no,location=no,status=no\')" style="text-align: center"><img alt="安全簽章" src="https://sealres.trustasia.com/seal/img/1x/seal.svg?domain=noy.asia" width="130px" height="39px" style="cursor: pointer"></div>\
-            <a style="display:inline;margin-left: 5px;" href="https://status.forum.noy.asia" target="_blank" rel="noreferrer noopener"><img alt="freshping" src="https://statuspage.freshping.io/badge/6b0f8156-3e52-4b9b-bb8c-7a4ccccc151d?0.5517256557041295" width="157px" height="41px"/></a>\
-            <a style="display:inline;margin-left: 5px;" href="https://www.quantumca.com.cn/" target="_blank" rel="noreferrer noopener"><img alt="quantumca" style="border-radius: 5px 5px 5px 10px;border: #3c3c3c45 solid 1px;" src="https://www.quantumca.com.cn/assets/front-site/img/trust-seal-badge-ssl.png" weight="106.69px" height="41px"/></a>';
             $.ajax({
                 url: "https://public-api.noy.asia/api/geoip",
                 async: true,
