@@ -76,8 +76,9 @@
     </style>
     <script>
         // config
-        var cm = "https://bucket.noyteam.online/file/asia.noy.now_2.4.1.apk";
-        var global = "https://unpkg.com/noyacg-app@2.4.1/asia.noy.now_2.4.1.apk";
+        var v = "2.4.1";
+        var cm = `https://bucket.noyteam.online/file/asia.noy.now_${v}.apk`;
+        var global = `https://unpkg.com/noyacg-app@${v}/asia.noy.now_${v}.apk`;
         var forum = "https://forum.noy.asia/d/98-android-app-241";
     </script>
 </head>
@@ -102,7 +103,7 @@
             return (false);
         }
         document.getElementById("forum").href = forum;
-        document.getElementById("download").innerHTML = `<span id="s">3</span> 秒後轉到下載 (2.4.1)`;
+        document.getElementById("download").innerHTML = `<span id="s">3</span> 秒後轉到下載 (${v})`;
         let snum = 3;
         let s = document.getElementById("s");
         let l = setInterval(() => {
@@ -112,7 +113,7 @@
                 clearInterval(l);
                 if (getQueryVariable("a") == "cm") window.location = cm;
                 else window.location = global;
-                setTimeout(() => { window.location = forum }, 200);
+                setTimeout(() => { window.location = forum }, 500);
             }
         }, 1000)
     </script>
