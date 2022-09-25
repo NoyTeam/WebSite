@@ -76,10 +76,10 @@
     </style>
     <script>
         // config
-        var v = "2.4.2";
+        var v = "2.4.3";
         var cm = `https://bucket.noyteam.online/file/asia.noy.now_${v}.apk`;
         var global = `https://unpkg.com/noyacg-app@${v}/asia.noy.now_${v}.apk`;
-        var forum = "https://forum.noy.asia/d/110-android-app-242";
+        var forum = "https://forum.noy.asia/d/116-android-app-243";
     </script>
 </head>
 
@@ -106,13 +106,13 @@
         document.getElementById("download").innerHTML = `<span id="s">3</span> 秒後轉到下載 (${v})`;
         let snum = 3;
         let s = document.getElementById("s");
+        if (getQueryVariable("a") == "cm") window.location = cm;
+        else window.location = global;
         let l = setInterval(() => {
             snum--;
             s.innerText = snum;
             if (snum < 1) {
                 clearInterval(l);
-                if (getQueryVariable("a") == "cm") window.location = cm;
-                else window.location = global;
                 setTimeout(() => { window.location = forum }, 500);
             }
         }, 1000)
