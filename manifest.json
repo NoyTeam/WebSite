@@ -3,9 +3,9 @@
   "name": "NoyAcg | 以優質服務承載牛子和未來",
   "icons": [
     {
-      "src": "favicon.webp",
-      "sizes": "512x512 192x192 64x64 32x32 24x24 16x16",
-      "type": "image/webp"
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/ico"
     }
   ],
   "start_url": ".",
