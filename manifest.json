@@ -1,0 +1,15 @@
+{
+  "short_name": "NoyAcg",
+  "name": "NoyAcg | 以優質服務承載牛子和未來",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "64x64",
+      "type": "image/ico"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
